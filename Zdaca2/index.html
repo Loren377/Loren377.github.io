@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            height: auto;
+        }
+        .line{
+            display: flex;
+            margin-top: -40px;
+        }
+        header .line{
+            font-weight: bold;
+        }
+        .line img{
+            width: 68%;
+            height: 30em;
+            margin-left: auto;
+            object-fit: cover;
+        }
+        #ht{
+            margin-top: auto;
+            margin-left: 60px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        #ht hr{
+            width: 400px;
+            margin: 0;
+            margin-left: -100px;
+            height: 2px;
+            background-color: #B2CBAE;
+            
+        }
+        #hp{
+            color: #B2CBAE;
+            font-size: 30px;
+            font-weight: bolder;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+        #hp2{
+            margin-top: 4px;
+            font-size: 12px;
+            font-weight: bolder;
+        }
+        .ht2{
+            background-color: #B2CBAE;
+            text-align: center;
+            height: 6em;
+            padding-top: 10px;
+
+        }
+        #hd{
+            line-height: 1.5em;
+            font-size: 12px;
+            font-weight: bold;
+
+        }
+        #hd2{
+            font-size: 8px;
+        }
+        .main{
+            height: auto;
+        }
+        .content{
+            display: flex;
+            height: 14em;
+            margin:0;
+            padding: 0;
+        }
+        .box {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 10px;
+            position: relative;
+        }
+        .boxt{
+            font-size: 0.6em;
+            background-color: whitesmoke;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+        .cl{
+            display: flex;
+            gap: 150px;
+        }
+        .cl img{
+            width: 50px;
+            height: 50px;
+        }
+        .boxf{
+            background-color: #9ab794;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+        .boxfb{
+            background-color: black;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+        .di{
+            width: 170px;
+            height: 120px;
+        }
+        button{
+            background-color: #B2CBAE;
+            color: black;
+            border: none;
+            padding: 7px 10px;
+            border-radius: 5px;
+            font-weight: 900;
+            font-size: 0.9em;
+        }
+        .boxt hr{
+            width: 95%;
+            height: 2px;
+            background-color: #B2CBAE;
+            border: none;
+            margin-left: -1px;
+        }
+        .p1{
+            font-size: 13px;
+            font-weight: 900;
+        }
+        .p2{
+            color: #B2CBAE;
+            font-size: 13px;
+            font-weight: 900;
+        }
+        .cl div{
+            margin-right: 40px;
+        }
+        .infbkc{
+            background-color: #B2CBAE;
+            height: 24em;
+            width: auto;
+            box-sizing: border-box;
+            padding: 10px;
+            position: relative;
+        }
+        .inf{
+            background-color: whitesmoke;
+            height: 300px;
+            width: 350px;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            text-align: left;
+            padding: 5px 20px;
+        }
+        .inpu{
+            width: 100%;
+            border: none;
+            box-shadow: 0px 1px 2px rgb(232, 231, 231);
+            font-size: 10px;
+            height: 25px;
+            padding-left: 10px;
+        }
+        input:hover{
+            border: none;
+        }
+        textarea{
+            width: 100%;
+            height: 3.5rem;
+            border: none;
+            box-shadow: 0px 1px 2px rgb(232, 231, 231);
+            font-size: 10px;
+            padding-left: 10px;
+        }
+        #inf{
+
+            font-size: 8px;
+            font-weight: lighter;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        #check{
+            width: auto;
+            font-size: 10px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        #but{
+            display: flex;
+            margin: 0 auto;
+            font-size: 0.7rem;
+        }
+        footer{
+            height: 20em;
+            text-align: center;
+            color: gray;
+        }
+        #kon{
+            color: #B2CBAE;
+            font-size: 20px;
+            font-weight: 900;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+        #bot{
+            width: 110px;
+            background-color: #B2CBAE;
+            height: 5px;
+            border: none;
+        }
+        #logo {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="line">
+            <div id="ht">
+                <p id="hp">UKRASNI<br>OBLUKATK</p>
+                <hr>
+                <p id="hp2">ZA UREĐIVANJE EKSTERIJERA I<BR>INTERIJERA</p>
+            </div>
+            <img src="shutterstock_264839273_obradjeno.png">
+        </div>
+        <div class="ht2">
+            <p id="hd">IZVRSNA PONUDA USKRSNOG OBLUTKA PO<BR>IZUZETNO POVOLJNIM CIJENAMA</p>
+            <div id="hd2">ŠIROK OBLIK GRANULACIJA, BOJA I ONLIKA</div>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="box">
+                <div class="boxfb">
+                    <img class="di" src="IMG_20211214_133242.png">
+                </div>
+            </div>
+            <div class="box boxt">
+                <p class="p1">BIJELI MRAMORNI OBLUTAK</p>
+                <p class="p2">OBLIKOVANI BIJLI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl">
+                    <div>05-15mm<br>35-50mm</div>
+                    <div>15-35mm<br>50-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+                <button href="">Cijena na upit</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="box boxt">
+                <p class="p1">BIJELI MRAMORNI OBLUTAK</p>
+                <p class="p2">LOMLJENI BIJLI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl">
+                    <div>05-15mm<br>35-50mm</div>
+                    <div>15-35mm<br>50-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+               <button href="">Cijena na upit</button>
+            </div>
+            <div class="box">
+                <div class="boxfb">
+                    <img class="di" src="IMG_20211214_132811.png">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <div class="box">
+                <div class="boxf">
+                    <img class="di" src="IMG_20211214_124018.png">
+                </div>
+            </div>
+            <div class="box boxtb">
+                <p class="p1">CRNI MRAMORNI OBLUTAK</p>
+                <p class="p2">OBLIKOVANI CRNI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl" >
+                    <div>05-15mm<br>35-50mm</div>
+                    <div>15-35mm<br>50-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+                <button href="">Cijena na upit</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="box boxt">
+                <p class="p1">CRNI MRAMORNI OBLUTAK</p>
+                <p class="p2">LOMLJENI CRNI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl">
+                    <div>05-15mm<br>35-50mm</div>
+                    <div>15-35mm<br>50-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+               <button href="">Cijena na upit</button>
+            </div>
+            <div class="box">
+                <div class="boxf">
+                    <img class="di" src="IMG_20211214_123729.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="box">
+                <div class="boxfb">
+                    <img class="di" src="granitni oblutak.png">
+                </div>
+            </div>
+            <div class="box boxt">
+                <p class="p1">GRANIT "ZEBRA"</p>
+                <p class="p2">OBLIKOVANI GRANITNI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl">
+                    <div>40-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+                <button href="">Cijena na upit</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="box boxt">
+                <p class="p1">CRVENI OBLUTAK</p>
+                <p class="p2">OBLIKOVANI CRVENI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl">
+                    <div>40-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+               <button href="">Cijena na upit</button>
+            </div>
+            <div class="box">
+                <div class="boxf">
+                    <img class="di" src="crveni oblikovani.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="box">
+                <div class="boxfb">
+                    <img class="di" src="IMG_20211214_135342.png">
+                </div>
+            </div>
+            <div class="box boxt">
+                <p class="p1">CRNI OBLUTAK</p>
+                <p class="p2">LOMLJENI CRNI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl">
+                    <div>40-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+                <button href="">Cijena na upit</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="box boxt">
+                <p class="p1">ZELENI OBLUTAK</p>
+                <p class="p2">LOMLJENI ZEKENI OBLUTAK</p>
+                <hr>
+                <p>Granulacija:</p>
+                <div class="cl">
+                    <div>40-80mm</div>
+                    <div><img src="uteg.png"></div>
+                </div>
+               <button href="">Cijena na upit</button>
+            </div>
+            <div class="box">
+                <div class="boxf">
+                    <img class="di" src="IMG_20211214_135641.png">
+                </div>
+            </div>
+        </div>
+        <div class="infbkc">
+            <div class="inf">
+                <p><input class="inpu" type="text" placeholder="Ime i prezime"></p>
+                <p><input class="inpu" type="email" placeholder="E-mail"></p>
+                <p><input class="inpu" type="tel" placeholder="Telefon"></p>
+                <textarea type="text" placeholder="Poruka"></textarea><br>
+                <p id="check"><input type="checkbox">Slažem se</p>
+                <div id="inf">Korištenjem ovog obraska prihvaćate prikupljanje i obradu osobnih podataka danih u obrasku bez kojih vaš zahtijev u obrasku ne može biti ispunjen.</div>
+                <button id="but">Pošalji upit</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div id="kon">KONTAKT</div>
+        <hr id="bot">
+        <img style="color: #B2CBAE;" src="phone-vibrate-fill.svg">
+        <p style="margin-bottom: 2px;">+ 389 988 986</p>
+        <p style="margin-top: 2px;">+ 354 445 292</p>
+        <img src="envelope.svg">
+        <p>info@design4you.hr</p>
+        <img src="globe.svg">
+        <p style="margin-top: 5px;">mojweb.com</p>
+        <img id="logo" src="logo_firme.png">
+    </footer>
+</body>
+</html>

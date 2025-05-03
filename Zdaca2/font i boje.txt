@@ -1,0 +1,9 @@
+Font
+https://fonts.google.com/specimen/Work+Sans
+
+ZELENE BOJE
+Boje pozadine:
+#B2CBAE
+
+Boje texta:
+#9ab794
