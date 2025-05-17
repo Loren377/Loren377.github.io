@@ -1,0 +1,163 @@
+@media (max-width: 549px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    h1 {
+        margin-top: 10px;
+        font-size: 1.4em;
+    }
+
+    #logo {
+        width: 3.5em;
+        height: 3.5em;
+    }
+
+    #menu {
+        margin-top: 10px;
+    }
+
+    select {
+        width: 10em;
+        max-width: 300px;
+    }
+
+    select option {
+        font-size: 100%;
+    }
+
+    #hero {
+        height: 6em;
+    }
+
+    #hero h1 {
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
+
+
+
+
+
+
+
+    .categories {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .categories h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .category-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .category {
+        width: 100%;
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .category img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+        object-fit: cover;
+        box-sizing: border-box;
+    }
+
+    .category-title {
+        font-size: 1em;
+        text-align: center;
+        margin-top: 0.5em;
+    }
+
+
+
+
+
+    .promo-section {
+        padding: 20px 10px;
+    }
+
+    .promo-section h2 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    .promo-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .promo-card {
+        width: 90%;
+        max-width: 360px;
+        margin-bottom: 20px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .promo-card h3 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .promo-card p {
+        font-size: 0.95em;
+    }
+
+    .promo-btn {
+        padding: 10px 16px;
+        font-size: 0.95em;
+    }
+}

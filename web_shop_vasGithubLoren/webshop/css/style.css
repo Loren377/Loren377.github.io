@@ -1,0 +1,246 @@
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdfd;
+    color: #333;
+}
+
+div,
+p,
+h1,
+h2,
+option,
+select {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6em;
+    background: linear-gradient(to bottom right, #946b4e, #ebda89);
+    font-size: large;
+    font-weight: bolder;
+}
+
+h1 {
+    justify-content: center;
+    align-items: center;
+}
+
+#menu {
+    margin-left: auto;
+    margin-right: 1em;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    width: 4em;
+    height: 4em;
+}
+
+select {
+    margin-right: 1em;
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 10em;
+    font-weight: bold;
+    background-color: #333;
+    color: #ccc;
+}
+
+select:focus {
+    outline: none;
+    border-color: #715846;
+    box-shadow: 0 0 5px #715846;
+}
+
+main {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#hero {
+    position: relative;
+    height: 15em;
+    margin: 0;
+    width: 100%;
+}
+
+#hero img {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: brightness(50%);
+}
+
+#hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    color: blanchedalmond;
+    font-size: 3em;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+#hero .slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#hero .slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    filter: brightness(50%);
+}
+
+#hero .slides img.active {
+    opacity: 1;
+    z-index: 0;
+}
+
+
+
+
+.categories {
+    padding: 2em 1em;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #ebda89;
+    margin: auto;
+    width: 100%;
+    border: 5px solid;
+}
+
+.categories h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 1.5em;
+    color: #222;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+    gap: 1.5em;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+.category img {
+    width: 20em;
+    height: 20em;
+    border-radius: 10px;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.category-title {
+    margin-top: 0.5em;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+
+
+
+.promo-section {
+    padding: 40px 20px;
+    background-color: #fffaf0;
+    text-align: center;
+}
+
+.promo-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.promo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.promo-card {
+    background-color: #ffffff;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+}
+
+.promo-card h3 {
+    color: #e76f51;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.promo-card p {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.promo-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2a9d8f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.promo-btn:hover {
+    background-color: #21867a;
+}

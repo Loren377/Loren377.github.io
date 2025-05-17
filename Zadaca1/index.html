@@ -15,6 +15,10 @@
             margin: 0;
             padding-top: 70px;
         }
+        body::selection{
+            background: #bd942e;
+            color: white;
+        }
         header{
             position: fixed;
             top: 0;
@@ -83,10 +87,6 @@
             padding: 30px;
             box-sizing: border-box;
         }
-        #fd ul li {
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
         h1{
             text-align: left;
             padding: 20px;
@@ -123,13 +123,16 @@
             list-style-image: url(image/check-circle.svg);
             list-style-position: outside;
             filter: brightness(0) invert(1);
-            
         }
+        
         #fd ul li {
+            font-size: 1.4rem;
+            font-weight: bold;
             padding: 8px 12px;
             margin-bottom: 10px;
             border-radius: 5px;
         }
+        
         .box{
             width: auto;
             height: 50px;

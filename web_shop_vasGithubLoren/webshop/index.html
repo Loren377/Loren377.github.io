@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <header>
+      <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
+      <img id="logo" src="img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
+      <h1>PET SHOP</h1>
+        <select id="menu" name="menu">
+            <option>Main menu</option>
+            <option value="Kontakt">Kontakt</option>
+            <option value="O nama">O nama</option>
+            <option value="Proizvodi">Proizvodi</option>
+        </select>
+      </div>
+      </header>
+      
+      <main>
+        <section id="hero">
+          <div class="slides">
+            <img src="img/banners/shutterstock_1414841759.webp" alt="Slide 1">
+            <img src="img/banners/pexels-lum3n-44775-406014.jpg" alt="Slide 2">
+            <img src="img/banners/pexels-mccutcheon-1909802.jpg" alt="Slide 3">
+            <img src="img/banners/pexels-rdne-7516109.jpg" alt="Slide 4">
+          </div>
+          <h1>Welcome to our<br>PET SHOP</h1>
+        </section>
+
+
+
+        <section class="promo-section">
+            <h2>Special Offers</h2>
+            <div class="promo-container">
+                
+                <div class="promo-card">
+                    <h3>🔥 20% Off All Dog Food</h3>
+                    <p>Limited time only! Grab your pup's favorite meals now.</p>
+                    <a href="#foods" class="promo-btn">Shop Now</a>
+                </div>
+
+                <div class="promo-card">
+                    <h3>🎁 Buy 1 Toy, Get 1 Free</h3>
+                    <p>Double the fun for your furry friend – today only!</p>
+                    <a href="#toys" class="promo-btn">View Toys</a>
+                </div>
+
+                <div class="promo-card">
+                    <h3>🌟 10% Off for New Customers</h3>
+                    <p>Use code <strong>WELCOME10</strong> at checkout.</p>
+                    <a href="#ostalo" class="promo-btn">Get Discount</a>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+        <section class="categories">
+            <h2>Product Categories</h2>
+            <div class="category-grid">
+                <a href="#foods" class="category">
+                <img src="img/products/cat_food1.png" alt="foods">
+                <div class="category-title">Food</div>
+                </a>
+                <a href="#toys" class="category">
+                <img src="img/products/dog_toy4.webp" alt="toys">
+                <div class="category-title">Toys</div>
+                </a>
+                <a href="#ostalo" class="category">
+                <img src="img/products/leash_4.jfif" alt="ostalo Decor">
+                <div class="category-title">Necessities</div>
+                </a>
+            </div>
+        </section>
+      </main>
+
+      <script>
+  const slides = document.querySelectorAll('#hero .slides img');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  showSlide(currentSlide);
+  setInterval(nextSlide, 5000);
+</script>
+  </body>
+</html>
