@@ -160,4 +160,42 @@
         padding: 10px 16px;
         font-size: 0.95em;
     }
+
+
+    /*.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....*/
+
+    .breadcrumb {
+        font-size: 0.9rem;
+        padding: 0.5em 1em;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    /*....Product grid layout....Product grid layout....Product grid layout....Product grid layout....*/
+
+    .thumbnails img {
+        width: 60px;
+        height: 60px;
+    }
+
+
+
+    .product-info {
+        padding: 15px;
+    }
+
+    .product-name {
+        font-size: 1.5em;
+    }
+
+    .add-to-cart {
+        font-size: 0.95em;
+        padding: 10px;
+    }
 }

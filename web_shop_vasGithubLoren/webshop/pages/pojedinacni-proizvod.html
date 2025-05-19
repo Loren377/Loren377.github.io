@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="/webshop/css/style.css">
+    <link rel="stylesheet" href="/webshop/css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+      <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
+      <img id="logo" src="/webshop/img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
+      <h1>PAW HAVEN</h1>
+        <select id="menu" name="menu">
+            <option>Main menu</option>
+            <option value="Kontakt">Kontakt</option>
+            <option value="O nama">O nama</option>
+            <option value="Proizvodi">Proizvodi</option>
+        </select>
+      </div>
+      </header>
+    <main id="proizvodi">
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="/webshop/index.html">Home</a></li>
+                <li><a href="/webshop/pages/proizvodi.html">Shop</a></li>
+            </ol>
+        </nav>
+        <div class="gallery">
+            <input type="radio" name="gallery" id="img1" checked>
+            <input type="radio" name="gallery" id="img2">
+            <input type="radio" name="gallery" id="img3">
+
+            <div class="main-images">
+                <img src="/webshop/img/products/cat_food1.png" alt="Product Image 1">
+                <img src="/webshop/img/products/dog_food.png" alt="Product Image 2">
+                <img src="/webshop/img/products/cat_food2.png" alt="Product Image 3">
+            </div>
+
+            <div class="thumbnails">
+                <label for="img1"><img src="/webshop/img/products/cat_food1.png" alt="Thumb 1"></label>
+                <label for="img2"><img src="/webshop/img/products/dog_food.png" alt="Thumb 2"></label>
+                <label for="img3"><img src="/webshop/img/products/cat_food2.png" alt="Thumb 3"></label>
+            </div>
+        </div>
+        <div class="product-info">
+
+            <h1 class="product-name">Healty Cat Food</h1>
+            <p class="product-sku">SKU: CAT-FOOD-001</p>
+            <p class="product-price">$19.99</p>
+            <p class="product-availability">Availability: <span class="in-stock">In Stock</span></p>
+            <p class="short-description">A healty cat food for your cat.</p>
+
+            <div class="long-description">
+                <h4>Product Details:</h4>
+                <p>This is a high quality cat food for your cat. It is made from the best ingredients and is perfect for your cat.</p>
+            </div>
+
+            <form class="product-options">
+                <label for="size">Size:</label>
+                <select id="size" name="size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                </select>
+
+                <label for="meat">Meat:</label>
+                <select id="meat" name="meat">
+                <option value="fish">Fish</option>
+                <option value="chicken">Chicken</option>
+                <option value="beef">Beef</option>
+                </select>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                <button type="submit" class="add-to-cart">Add to Cart</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
