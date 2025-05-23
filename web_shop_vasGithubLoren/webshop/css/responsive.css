@@ -198,4 +198,58 @@
         font-size: 0.95em;
         padding: 10px;
     }
+
+
+
+
+
+    #cart-toggle {
+        top: 7.25em;
+    }
+}
+
+/*....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....*/
+
+.cart-table thead {
+    display: none;
+}
+
+.cart-table,
+.cart-table tbody,
+.cart-table tr,
+.cart-table td {
+    display: block;
+    width: 100%;
+}
+
+.cart-table tr {
+    margin-bottom: 1em;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.5em;
+}
+
+.cart-table td {
+    text-align: right;
+    padding: 8px;
+    position: relative;
+}
+
+.cart-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.cart-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.total {
+    text-align: center;
 }

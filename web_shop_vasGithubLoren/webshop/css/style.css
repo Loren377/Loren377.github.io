@@ -545,3 +545,211 @@ input[type="radio"] {
 .add-to-cart:hover {
     background-color: #218838;
 }
+
+
+
+
+
+#cart-toggle {
+    position: fixed;
+    top: 8.5em;
+    right: 20px;
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border: 2px solid #946b4ecc;
+    border-radius: 1em;
+    cursor: pointer;
+    z-index: 1000;
+    text-decoration: none;
+    /* Prevents underline on the link */
+    display: inline-block;
+    /* Ensures padding and layout behave like a button */
+}
+
+
+
+
+
+#product-details {
+    margin-top: 0 !important;
+    padding: 1em;
+    background-color: #333 !important;
+    border: 1px solid orange !important;
+    color: whitesmoke;
+}
+
+#product-details h2 {
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+}
+
+#product-details p {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+
+
+
+
+#customer-reviews {
+    margin-top: 0 !important;
+    padding: 1.5em;
+    background-color: #fff7f0;
+    border: 1px solid #e0cfcf;
+    border-radius: 8px;
+}
+
+#customer-reviews h2 {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    color: #b35c00;
+}
+
+.review {
+    border-bottom: 1px solid #f0d8c0;
+    padding: 0.75em 0;
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.review p {
+    margin: 0.3em 0;
+}
+
+
+
+
+#related-products {
+    margin-top: 0 !important;
+    padding: 1.5em;
+    background-color: rgb(249, 236, 210) !important;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#related-products h2 {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.related-products-grid {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-card2 {
+    background: #ebda89;
+    border: 1px solid #946b4e;
+    padding: 1em;
+    width: 30%;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.product-card2 img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5em;
+}
+
+.product-card2 h3 {
+    margin: 0.5em 0 0.2em;
+}
+
+.product-card2 p {
+    font-weight: bold;
+    color: #b35c00;
+}
+
+.product-card2 button {
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    background-color: rgb(73, 108, 73);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.product-card2 button:hover {
+    background-color: #555;
+}
+
+/*....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....Kosarica....*/
+
+
+.cart-container {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 1em;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.total {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+#clear-cart {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#clear-cart:hover {
+    background-color: #cc0000;
+}
+
+.checkout-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: #388e3c;
+}
+
+.empty-message {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}

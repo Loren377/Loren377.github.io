@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dog Food Calculator</title>
+  <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+<meta name="theme-color" content="black">
+  <link rel="stylesheet" href="style2.css" />
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="container">
+    <h1>Dog Food Calculator</h1>
+    <form id="dogForm">
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" required />
+
+      <label for="age">Age (months):</label>
+      <input type="number" id="age" required />
+
+      <label for="size">Size Category:</label>
+      <select id="size">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </select>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script1.js"></script>
+  
+    <script>
+        window.addEventListener('load', () => {
+            registerSW();
+        });
+
+        // Register the Service Worker
+        async function registerSW() {
+            if ('serviceWorker' in navigator) {
+                try {
+                    await navigator
+                        .serviceWorker
+                        .register('serviceworker.js');
+                } catch (e) {
+                    console.log('SW registration failed');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

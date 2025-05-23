@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product</title>
-    <link rel="stylesheet" href="/webshop/css/style.css">
-    <link rel="stylesheet" href="/webshop/css/responsive.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <body>
     <header>
       <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
-      <img id="logo" src="/webshop/img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
+      <img id="logo" src="/img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
       <h1>PAW HAVEN</h1>
         <select id="menu" name="menu">
             <option>Main menu</option>
@@ -26,8 +26,8 @@
     <main id="proizvodi">
         <nav aria-label="Breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="/webshop/index.html">Home</a></li>
-                <li><a href="/webshop/pages/proizvodi.html">Shop</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/proizvodi.html">Shop</a></li>
             </ol>
         </nav>
         <div class="gallery">
@@ -36,15 +36,15 @@
             <input type="radio" name="gallery" id="img3">
 
             <div class="main-images">
-                <img src="/webshop/img/products/cat_food1.png" alt="Product Image 1">
-                <img src="/webshop/img/products/dog_food.png" alt="Product Image 2">
-                <img src="/webshop/img/products/cat_food2.png" alt="Product Image 3">
+                <img src="/img/products/cat_food1.png" alt="Product Image 1">
+                <img src="/img/products/dog_food.png" alt="Product Image 2">
+                <img src="/img/products/cat_food2.png" alt="Product Image 3">
             </div>
 
             <div class="thumbnails">
-                <label for="img1"><img src="/webshop/img/products/cat_food1.png" alt="Thumb 1"></label>
-                <label for="img2"><img src="/webshop/img/products/dog_food.png" alt="Thumb 2"></label>
-                <label for="img3"><img src="/webshop/img/products/cat_food2.png" alt="Thumb 3"></label>
+                <label for="img1"><img src="/img/products/cat_food1.png" alt="Thumb 1"></label>
+                <label for="img2"><img src="/img/products/dog_food.png" alt="Thumb 2"></label>
+                <label for="img3"><img src="/img/products/cat_food2.png" alt="Thumb 3"></label>
             </div>
         </div>
         <div class="product-info">
@@ -60,26 +60,118 @@
                 <p>This is a high quality cat food for your cat. It is made from the best ingredients and is perfect for your cat.</p>
             </div>
 
-            <form class="product-options">
+            <form class="product-options" id="productForm">
+                <input type="hidden" name="productName" value="Healty Cat Food">
+                <input type="hidden" name="productSKU" value="CAT-FOOD-001">
+                <input type="hidden" name="productPrice" value="19.99">
+
                 <label for="size">Size:</label>
                 <select id="size" name="size">
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
                 </select>
 
-                <label for="meat">Meat:</label>
+                <label for="meat">meat:</label>
                 <select id="meat" name="meat">
-                <option value="fish">Fish</option>
-                <option value="chicken">Chicken</option>
-                <option value="beef">Beef</option>
+                    <option value="Fish">Fish</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Beef">Beef</option>
                 </select>
 
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" min="1" value="1">
+
                 <button type="submit" class="add-to-cart">Add to Cart</button>
             </form>
         </div>
     </main>
+
+
+
+
+
+    <a href="/pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+
+
+
+
+
+    
+    <section id="product-details" style="margin-top: 2em; padding: 1em; background-color: #f9f9f9; border: 1px solid #ddd;">
+        <h2>Details / Specifications</h2>
+        <p style="line-height: 1.6; font-size: 1.1em;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a justo ac libero scelerisque vehicula non sed justo. 
+            Morbi ut tincidunt elit. Integer pretium dui eget purus convallis, sit amet varius libero blandit. 
+            Donec at orci quis risus malesuada sagittis. Nam rutrum lorem at lorem facilisis tincidunt. 
+            Fusce volutpat, magna sit amet fermentum commodo, ex nisl suscipit odio, ac congue nisl erat ac metus. 
+            Sed vulputate, metus nec imperdiet malesuada, lorem justo dictum sem, non accumsan erat nunc non magna.
+        </p>
+    </section>
+
+
+
+
+    <section id="customer-reviews" style="margin-top: 2em; padding: 1em; background-color: #fff7f0; border: 1px solid #e0cfcf;">
+        <h2>Customer Reviews</h2>
+
+        <div class="review">
+            <p><strong>Jane Doe</strong> <span>⭐⭐⭐⭐⭐</span></p>
+            <p>"Absolutely delicious and well-packed. Will buy again!"</p>
+        </div>
+
+        <div class="review">
+            <p><strong>John Smith</strong> <span>⭐⭐⭐⭐</span></p>
+            <p>"Tasty, but delivery took a bit longer than expected."</p>
+        </div>
+
+        <div class="review">
+            <p><strong>Emily C.</strong> <span>⭐⭐⭐⭐⭐</span></p>
+            <p>"The best meal kit I’ve tried so far. Fresh and flavorful."</p>
+        </div>
+
+        <!-- Placeholder for more reviews -->
+        <div class="review">
+            <p><strong>Customer</strong> <span>⭐⭐⭐⭐</span></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit fermentum velit.</p>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="related-products" style="margin-top: 2em; padding: 1em; background-color: #f4f4f4; border: 1px solid #ccc;">
+        <h2>Related Products</h2>
+        <div class="related-products-grid">
+            <div class="product-card2">
+                <img class="product-image" src="/img/products/dog_sprej.jpg" alt="Product 1">
+                <h3>Dog spray</h3>
+                <p>$8.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card2">
+                <img class="product-image" src="/img/products/dog_toy4.webp" alt="Product 2">
+                <h3>Dog toy</h3>
+                <p>$7.49</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product-card2">
+                <img class="product-image" src="/img/products/leash_4.jfif" alt="Product 3">
+                <h3>Dog leash</h3>
+                <p>$9.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    <script src="/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartCount = document.getElementById('cart-count');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            if (cartCount) cartCount.textContent = totalItems;
+        });
+</script>
 </body>
 </html>
