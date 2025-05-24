@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Izaberite koju operaciju želite izvršiti:</p>
+    <button onclick="zbrajanje()">Zbrajanje</button>
+    <button onclick="oduzimanje()">Oduzimanje</button>
+    <button onclick="mnozenje()">Množenje</button>
+    <button onclick="dijeljenje()">Dijeljenje</button>
+    <p id="demo"></p>
+    <script>
+        var x = parseInt(prompt("Unesite prvi broj."));
+        var y = parseInt(prompt("Unesite drugi broj."));
+        var rezultat;
+        while(isNaN(x) || isNaN(y)){
+            x = parseInt(prompt("Unesite prvi broj."));
+            y = parseInt(prompt("Unesite drugi broj."));
+        }
+        function zbrajanje(){
+            rezultat = x + y;
+            document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+        }
+        function oduzimanje(){
+            rezultat = x - y;
+            document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+        }
+        function mnozenje(){
+            rezultat = x * y;
+            document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+        }
+        function dijeljenje(){
+            rezultat = x / y;
+           document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+        }
+        
+    </script>
+</body>
+</html>
