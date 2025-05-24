@@ -3,18 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Beachy Project Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf96153e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #007bff; /* A nice ocean blue */
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #007bff, #00c6ff); /* Ocean gradient top border */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .project-card a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 15px 0;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Ovo je moj portfolio.</h1>
-    <p>Ovdje možete pronaći podatke o meni.</p>
-    <h2>Projekti:</h2>
-    <ul>
-        <li><a href="Zadaca1/index.html">Projekt 1</a></li>
-        <li><a href="Zdaca2/index.html">Projekt 2</a></li>
-        <li><a href="">Projekt 3</a></li>
-        <li><a href="">Projekt 4</a></li>
-        <li><a href="">Projekt 5</a></li>
-    </ul>
+    <h1>My Projects</h1>
+
+    <div class="projects-container">
+        <div class="project-card">
+            <h3>The First Website Project</h3>
+            <p>My inaugural journey into web development, exploring the basics of HTML and CSS.</p>
+            <a href="Zadaca1/index.html">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>The Second Website Project</h3>
+            <p>Building upon initial knowledge, this project delves deeper into web design principles.</p>
+            <a href="Zadaca2/index.html">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Optimal Dog Food Calculator</h3>
+            <p>A Progressive Web App (PWA) designed to help pet owners calculate the ideal dog food portions.</p>
+            <a href="PrviPWA/pwa/index.html">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Calculator Application</h3>
+            <p>A functional calculator application showcasing basic JavaScript logic and user interface design.</p>
+            <a href="Kalkulator/Kalakulator.html">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>The First WebShop</h3>
+            <p>An initial venture into e-commerce, demonstrating fundamental concepts of an online store.</p>
+            <a href="web_shop_vasGithubLoren/webshop/index.html">View Project</a>
+        </div>
+    </div>
 </body>
 </html>

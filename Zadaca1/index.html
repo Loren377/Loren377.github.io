@@ -6,284 +6,355 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Pixels&family=Underdog&family=Varela+Round&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Responsive Design</title>
     <style>
+        /* Base Styles */
         * {
             font-family: 'Varela Round', sans-serif;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
         }
-        body{
+        body {
             margin: 0;
-            padding-top: 70px;
+            padding-top: 70px; /* Space for the fixed header */
+            line-height: 1.6;
+            color: #333;
         }
-        body::selection{
+        body::selection {
             background: #bd942e;
             color: white;
         }
-        header{
+
+        /* Header */
+        header {
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
             display: flex;
-            padding: 0 20px;
+            align-items: center; /* Vertically align items in the header */
+            padding: 0 1rem; /* Use rem for padding */
             background-color: white;
             width: 100%;
-            border: 1px solid #ddd;
+            border-bottom: 1px solid #ddd; /* Use border-bottom for a cleaner look */
+            height: 70px; /* Fixed height for the header */
         }
-        header img{
-            height: 70px;
-            max-width: 500px;
-            border-width: thin;
+        header img {
+            height: 60px; /* Slightly reduce logo height for better fit */
+            width: auto;
+            max-width: 100%; /* Ensure image is responsive */
         }
-        .header{
-            height: 20px;
-            width: 20px;
-            margin-left: 10px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .head{
+        .head {
             display: flex;
-            margin-left: auto;
-            margin-right: 20px;
-            margin-top: 30px;
+            align-items: center;
+            margin-left: auto; /* Push social icons and "O NAMA" to the right */
+            margin-right: 1rem; /* Use rem for margin */
         }
-        .head a{
+        .head a {
             color: #555;
-        }
-        #f:hover{
+            text-decoration: none;
+            padding: 0.5rem 0.8rem; /* Add padding for better clickable area */
+            transition: background-color 0.3s ease, color 0.3s ease;
             border-radius: 3px;
+        }
+        #head {
+            margin-right: 1.5rem; /* Space between "O NAMA" and social icons */
+        }
+        #f:hover {
             background-color: rgb(55, 55, 189);
             color: white;
         }
-        #inst:hover{
-            border-radius: 3px;
+        #inst:hover {
             background-color: rgb(186, 12, 186);
             color: white;
         }
-        #head{
-            margin-right: 30px;
-            text-decoration: none;
+        .header.svg-icon { /* Class for SVG icons */
+            width: 20px;
+            height: 20px;
+            vertical-align: middle; /* Align icons with text if present */
         }
+
+        /* Main Content Sections */
         #main {
             display: flex;
-            align-items: stretch;
-            height: auto;
-            width: 100%;
-            overflow: hidden;
+            flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+            min-height: calc(100vh - 70px); /* Fill remaining viewport height */
+        }
+        #fd, #sd {
+            flex: 1;
+            padding: 2rem; /* Use rem for padding */
+            min-width: 300px; /* Minimum width before wrapping */
         }
         #fd {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image/cover.jpg);
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(image/cover.jpg); /* MAKE SURE THIS PATH IS CORRECT */
             background-size: cover;
             background-position: center;
             color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: flex-start; /* Align text to the start */
         }
         #sd {
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        #fd, #sd {
-            flex: 1;
-            padding: 30px;
-            box-sizing: border-box;
-        }
-        h1{
-            text-align: left;
-            padding: 20px;
-            margin: 0 20px;
-            margin-bottom: 20px;
-            padding-top: 10px;
-            font-family: 'Varela Round', sans-serif !important;
-            font-size: 2rem;
-            font-weight: 700;
+            background-color: #f9f9f9;
         }
         .sd-inner {
             width: 100%;
             max-width: 600px;
+            padding: 1rem;
+            box-sizing: border-box;
         }
-        h2{
+
+        /* Typography */
+        h1 {
+            text-align: left;
+            padding: 1rem;
+            margin: 0 1rem 1.5rem; /* Adjust margins */
+            font-family: 'Varela Round', sans-serif !important;
+            font-size: clamp(1.8rem, 4vw, 2rem); /* Responsive font size */
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h2 {
             font-family: "Varela Round", sans-serif !important;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 2rem); /* Responsive font size */
+            margin-bottom: 1.5rem;
         }
-        @media (max-width: 768px) {
-            #main {
-                flex-direction: column;
-            }
-            #fd, #sd {
-                flex: 100%;
-            }
+
+        /* List Styles */
+        ul {
+            list-style-type: none; /* Remove default bullet */
+            padding-left: 0;
         }
-        #inst{
-            margin-right: 20px;
+        #fd ul li {
+            font-size: clamp(1rem, 2.5vw, 1.4rem); /* Responsive font size */
+            font-weight: bold;
+            padding: 0.5rem 0;
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 2.5rem; /* Space for custom bullet */
+        }
+        #fd ul li::before {
+            content: url(image/check-circle.svg); /* MAKE SURE THIS PATH IS CORRECT */
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
             width: 20px;
             height: 20px;
+            filter: brightness(0) invert(1); /* This filter turns the icon white */
         }
-        ul{
-            list-style-type: disc;
-            list-style-image: url(image/check-circle.svg);
-            list-style-position: outside;
-            filter: brightness(0) invert(1);
-        }
-        
-        #fd ul li {
-            font-size: 1.4rem;
-            font-weight: bold;
-            padding: 8px 12px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        
-        .box{
-            width: auto;
-            height: 50px;
-            margin: 0 0px;
-            padding: 20px;
-        }
-        .box1{
-            box-shadow: 10px 5px 20px gray;
-            border: none;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            height: auto;
-            max-width: 450px;
-            margin: 20px auto;
-            padding: 20px;
-            font-weight: 700;
-            font-size: calc(1.2vmin + 20px);
-            text-align: left;
-            color: #bd942e;
-        }
-        .box2{
-            display: flex;
-            margin-bottom: 20px;
-            margin-left: 20px;
-            margin-right: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-            justify-content: space-between;
-            gap: 15px;
-            text-align: left;
-            color: #555;
-        }
-        .box2 input {
-            width: auto;
-            height: 30px;
-            padding: 12px;
-            font-size: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 5px 5px 10px gray;
-        }
-        .box2 input:focus {
-            outline: none;
-        }
-        .box3{
-            margin-top: 20px;
-            text-align: left;
-            margin-left: 20px;
-            margin-right: 35px;
-            padding-left: 20px;
-            padding-right: 35px;
-            color: #555;
-        }
-        .box3 input {
-            width: 100%;
-            height: 30px;
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            box-shadow: 5px 5px 10px gray;
 
+        /* Form Styles */
+        .box {
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
         }
-        .box3 input:focus {
-            outline: none;
+        .box1 {
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+            border: 1px solid #eee;
+            border-radius: 8px; /* Slightly more rounded corners */
+            padding: 1.5rem;
+            font-weight: 700;
+            font-size: clamp(1rem, 2.5vw, 1.5rem); /* Responsive font size */
+            text-align: center; /* Center text in this box */
+            color: #bd942e;
+            max-width: 450px;
+            margin: 2rem auto; /* Center the box */
         }
-        .box4 {
-            margin-top: 20px;
-            text-align: left;
-            margin-left: 20px;
-            margin-right: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
+        .box2 {
+            display: flex;
+            flex-wrap: wrap; /* Allow inputs to wrap */
+            gap: 1rem; /* Consistent gap between inputs */
+            padding: 0 1rem;
+            justify-content: space-between;
+        }
+        .box2 p {
+            flex: 1 1 calc(50% - 0.5rem); /* Distribute space for inputs, responsive */
+            margin: 0; /* Remove default paragraph margin */
+        }
+        .box2 label, .box3 label, .box4 label {
+            display: block; /* Make labels block-level for better spacing */
+            margin-bottom: 0.5rem;
             color: #555;
+            font-weight: bold;
         }
-        #poruka{
+        .box2 input,
+        .box3 input,
+        #poruka {
             width: 100%;
-            min-height: 120px;
-            padding: 12px;
+            padding: 0.8rem 1rem; /* Adjust padding for input fields */
             font-size: 1rem;
-            border-radius: 5px;
             border: 1px solid #ddd;
-            box-sizing: border-box;
-            box-shadow: 5px 5px 10px gray;
+            border-radius: 5px;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
+        .box2 input:focus,
+        .box3 input:focus,
         #poruka:focus {
             outline: none;
+            border-color: #bd942e;
+            box-shadow: 0 0 0 3px rgba(189, 148, 46, 0.2); /* Focus ring */
+        }
+        #poruka {
+            min-height: 100px; /* Reduced min-height for mobile */
+            resize: vertical; /* Allow vertical resizing */
         }
         textarea {
             font-family: 'Varela Round', sans-serif;
-            font-size: 1rem;
         }
-        .box5{
-            margin-top: 60px;
-            text-align: left;
-            color: #555;
-            height: 5px;
+
+        .box3, .box4 {
+            padding: 0 1rem;
         }
-        .box6{
-            text-align: left;
-            color: #555;
-            height: auto;
-            padding-left: 5%;
+        .box5 {
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        .box5 input[type="checkbox"] {
+            margin-right: 0.5rem;
+            transform: scale(1.2); /* Make checkbox slightly larger */
+        }
+        .box6 {
+            padding: 0 1rem 1.5rem; /* Add bottom padding */
+            font-size: 0.9rem;
+            color: #777;
         }
         .box7 {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
-        }
-        .box7 a {
-            background-color: #bd942e;
-            color:white
+            padding: 0 1rem 2rem; /* Add bottom padding */
         }
         button {
             background-color: #bd942e;
             color: white;
-            padding: 12px 30px;
-            margin-left: 20px;
+            padding: 0.8rem 1.5rem; /* Adjust button padding */
             border: none;
             border-radius: 5px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #555;
         }
-        a{
-            font-size: large;
-            margin-right: 20px;
+        .box7 a {
+            font-size: 1rem;
+            color: #bd942e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
-        
+        .box7 a:hover {
+            color: #555;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) { /* Adjust breakpoint for larger tablets */
+            #main {
+                flex-direction: column; /* Stack sections on smaller screens */
+            }
+            #fd, #sd {
+                flex: none; /* Remove flex sizing */
+                width: 100%; /* Take full width */
+                min-height: auto; /* Remove min-height for stacked sections */
+            }
+            #fd {
+                padding: 3rem 1.5rem; /* More vertical padding for mobile */
+            }
+            #sd {
+                padding: 2rem 1rem; /* Adjust padding for form section */
+            }
+            header {
+                flex-direction: column; /* Stack header items */
+                height: auto; /* Auto height for stacked header */
+                padding: 0.5rem 1rem;
+            }
+            header img {
+                height: 50px; /* Smaller logo on mobile */
+                margin-bottom: 0.5rem;
+            }
+            .head {
+                margin: 0;
+                width: 100%;
+                justify-content: center; /* Center social icons */
+                padding-bottom: 0.5rem;
+            }
+            #head {
+                margin-right: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) { /* Even smaller screens (phones) */
+            h1 {
+                font-size: clamp(1.5rem, 6vw, 2.5rem); /* Adjust font size for very small screens */
+                margin: 0 0.5rem 1rem;
+                text-align: center; /* Center title on very small screens */
+            }
+            h2 {
+                font-size: clamp(1rem, 4vw, 1.5rem);
+                text-align: center; /* Center description on very small screens */
+            }
+            #fd ul li {
+                font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+                padding-left: 2rem;
+            }
+            #fd ul li::before {
+                width: 18px;
+                height: 18px;
+            }
+            .box1 {
+                font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+                padding: 1rem;
+                margin: 1.5rem auto;
+            }
+            .box2 {
+                flex-direction: column; /* Stack name and phone inputs */
+            }
+            .box2 p {
+                flex: none;
+                width: 100%;
+            }
+            button {
+                width: 100%; /* Full width button on small screens */
+                margin-left: 0;
+                margin-bottom: 1rem;
+            }
+            .box7 {
+                flex-direction: column; /* Stack button and link */
+                align-items: center;
+            }
+            .box7 a {
+                margin-right: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="retina-logo" data-dark-logo="images/canvasone-dark@2x.png"><img src="https://pporahovica.hr/wp-content/uploads/2020/05/Logo-gold.png" alt="PP Orahovica"></a>
+        <a href="index.html" class="retina-logo" data-dark-logo="images/canvasone-dark@2x.png">
+            <img src="https://pporahovica.hr/wp-content/uploads/2020/05/Logo-gold.png" alt="PP Orahovica">
+        </a>
         <div class="head">
-            <a id="head" href=""><div>O NAMA</div></a>
-            <a href="">
-                <svg xmlns="http://www.w3.org/2000/svg" id="f" class="header" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-              </svg>
+            <a id="head" href="#">
+                <div>O NAMA</div>
             </a>
-
-            <a href="">
-                <svg id="inst" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+            <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" id="f" class="header svg-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                </svg>
+            </a>
+            <a href="#">
+                <svg id="inst" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram header svg-icon" viewBox="0 0 16 16">
                     <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-                  </svg>
-            </a>   
+                </svg>
+            </a>  
         </div>
     </header>
     <div id="main">
@@ -302,33 +373,40 @@
         <div id="sd">
             <div class="sd-inner">
                 <h1>NEKORIŠTENIH REZERVNIH<br> DIJELOVA MEHANIZACIJE</h1>
-            <div class="box box1">
-                Nazovite nas na broj<br> 091/43 666 09 ili pošaljite<br> upit:
-            </div>
-            <div  class="box box2">
-                <p>
-                    <label for="name">Vaše ime i prezime</label>
-                    <input id="name" type="text" required placeholder="Unesite svoje ime">
-                </p>
-                <p>
-                    <label for="br">Broj telefona</label>
-                    <input id="br" type="tel" required placeholder="Unesite broj telefona">
-                </p>
-            </div>
-            <div class="box box3">Email Adresa<input type="email" required placeholder="Unesite email"></div>
-            <div class="box box4">Kontaktirajte nas<br>
-                <textarea name="poruka" id="poruka" placeholder="Unesite poruku"></textarea>
-            </div>
-            <div class="box box5"><input type="checkbox"> Slažem se</div>
-            <div class="box box6">Korištenjem ovog obrasca prihvaćate prikupljanje i obradu osobnih podataka danih u obrascu bez kojih vaš zahtjev u obrascu ne može biti ispunjen.
-            </div>
-            <div class="box box7">
-                <button type="submit">Pošaljite Upit</button>
-                <a href="">Posjeti naš Web</a>
-            </div>
+                <div class="box box1">
+                    Nazovite nas na broj<br> 091/43 666 09 ili pošaljite<br> upit:
+                </div>
+                <div class="box box2">
+                    <p>
+                        <label for="name">Vaše ime i prezime</label>
+                        <input id="name" type="text" required placeholder="Unesite svoje ime">
+                    </p>
+                    <p>
+                        <label for="br">Broj telefona</label>
+                        <input id="br" type="tel" required placeholder="Unesite broj telefona">
+                    </p>
+                </div>
+                <div class="box box3">
+                    <label for="email">Email Adresa</label>
+                    <input id="email" type="email" required placeholder="Unesite email">
+                </div>
+                <div class="box box4">
+                    <label for="poruka">Kontaktirajte nas</label>
+                    <textarea name="poruka" id="poruka" placeholder="Unesite poruku"></textarea>
+                </div>
+                <div class="box box5">
+                    <input type="checkbox" id="agree">
+                    <label for="agree">Slažem se</label>
+                </div>
+                <div class="box box6">
+                    Korištenjem ovog obrasca prihvaćate prikupljanje i obradu osobnih podataka danih u obrascu bez kojih vaš zahtjev u obrascu ne može biti ispunjen.
+                </div>
+                <div class="box box7">
+                    <button type="submit">Pošaljite Upit</button>
+                    <a href="#">Posjeti naš Web</a>
+                </div>
             </div>
         </div>
-        
     </div>
 </body>
 </html>

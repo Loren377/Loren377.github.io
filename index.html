@@ -3,23 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dobro došli!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: teal;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to top right, #89cff0, #a8dadc, #457b9d); /* Ocean blue to sea green gradient */
+            color: #f1faee; /* Light off-white for text */
             text-align: center;
+            line-height: 1.6;
         }
+
         h1, h2, h3 {
-            color: rgb(214, 213, 213);
+            font-family: 'Montserrat', sans-serif;
+            color: #1d3557; /* Darker blue for headings */
+            margin-bottom: 15px;
         }
-            
-       
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        a {
+            display: inline-block;
+            background-color: #1d3557; /* Dark blue button */
+            color: #f1faee; /* Light text on button */
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px; /* Pill-shaped button */
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        a:hover {
+            background-color: #457b9d; /* Lighter blue on hover */
+            transform: translateY(-3px); /* Slight lift effect */
+        }
     </style>
 </head>
 <body>
     <h1>Dobro došli na moj sajt.</h1>
-    <h2>Nadam se da ce vam se scidjeti moji projekti.</h2>
-    <h3>Ukoliko zelite da vidite moj portfolio kliknite na link ispod.</h3>
-    <a href="/portfolio.html">Ovdje se načazi moj portfolio.</a>
+    <h2>Nadam se da će vam se svidjeti moji projekti.</h2>
+    <h3>Ukoliko želite da vidite moj portfolio kliknite na link ispod.</h3>
+    <a href="/portfolio.html">Ovdje se nalazi moj portfolio.</a>
 </body>
 </html>

@@ -1,0 +1,188 @@
+/* General Body Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    /* Modern, clean font */
+    margin: 0;
+    padding: 0;
+    background: url('your-beach-background.jpg') no-repeat center center fixed;
+    /* Replace with your beach image */
+    background-size: cover;
+    color: #4A4A4A;
+    /* Dark charcoal - like damp sand for readability */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensures footer is at the bottom */
+}
+
+/* Overlay for better text readability on background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Semi-transparent white overlay for brightness */
+    z-index: -1;
+    /* Puts it behind content but above background image */
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Slightly more opaque for header */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    color: #5F9EA0;
+    /* Cadet blue / Seafoam for header elements */
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    /* Fun, beachy script font */
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: #1E90FF;
+    /* Dodger Blue - a vibrant ocean blue for the main title */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #6A6A6A;
+    /* Slightly lighter charcoal for header text */
+}
+
+/* Main Content Area */
+main {
+    flex-grow: 1;
+    /* Allows main content to take up available space */
+    padding: 2rem;
+    max-width: 960px;
+    /* Limits content width for readability */
+    margin: 2rem auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Opaque white/light sand for content sections */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid #E0E0E0;
+    /* Light gray separator, like a subtle sand ripple */
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.2rem;
+    color: #1E90FF;
+    /* Consistent Dodger Blue heading */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #1E90FF;
+    /* Underline for headings */
+    border-radius: 2px;
+}
+
+/* Project List Styling */
+ul {
+    list-style: none;
+    /* Remove default bullet points */
+    padding: 0;
+    display: grid;
+    /* Use CSS Grid for a modern layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Responsive columns */
+    gap: 1.5rem;
+    /* Space between grid items */
+}
+
+ul li {
+    background-color: #F8F8F8;
+    /* Very light background for list items, almost white sand */
+    border: 1px solid #D4C1A8;
+    /* Medium sand border */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    /* Ensures border-radius applies to content */
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+ul li a {
+    display: block;
+    /* Make the whole list item clickable */
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #4682B4;
+    /* Steel Blue - a deeper ocean blue for links */
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #1E90FF;
+    /* Dodger Blue on hover for a brighter accent */
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #7D654E;
+    /* A rich, earthy brown - like wet sand or driftwood */
+    color: #F4E7D9;
+    /* Light sand color for footer text */
+    font-size: 0.9rem;
+    margin-top: auto;
+    /* Pushes footer to the bottom */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    ul {
+        grid-template-columns: 1fr;
+        /* Stack projects on smaller screens */
+    }
+}

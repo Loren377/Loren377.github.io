@@ -3,40 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vintage Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace; /* A monospaced font for a technical/retro feel */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ede0d4; /* Muted, old paper background */
+            color: #3e2723; /* Dark brown/sepia for text */
+            text-align: center;
+        }
+
+        .calculator-container {
+            background-color: #6d4c41; /* Darker brown for the calculator body */
+            border: 5px solid #3e2723; /* Even darker border */
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3); /* Stronger, offset shadow for a chunky look */
+            max-width: 400px;
+            width: 100%;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #fbe9e7; /* Lighter text for the instruction */
+        }
+
+        #demo {
+            background-color: #cddc39; /* Muted green for the display */
+            color: #333333; /* Dark text on the display */
+            font-family: 'Press Start 2P', cursive; /* Pixelated font for display */
+            font-size: 1.8em;
+            padding: 15px 10px;
+            margin-bottom: 25px;
+            border: 2px solid #8bc34a; /* Darker green border for display */
+            border-radius: 5px;
+            min-height: 1.8em; /* Ensure consistent height */
+            display: flex;
+            justify-content: flex-end; /* Align text to the right like old calculators */
+            align-items: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle text shadow */
+        }
+
+        .button-grid {
+            display: grid; /* Use CSS Grid for layout */
+            grid-template-columns: repeat(2, 1fr); /* Creates two columns of equal width */
+            gap: 15px; /* Space between grid items (buttons) */
+            margin-top: 20px; /* Add some space above the buttons */
+        }
+
+        button {
+            background-color: #8d6e63; /* Muted brown for buttons */
+            color: #fbe9e7; /* Light text on buttons */
+            border: 2px solid #5d4037; /* Darker brown border for buttons */
+            border-radius: 5px;
+            padding: 15px 25px;
+            margin: 0; /* Remove margin from individual buttons, as gap in grid handles spacing */
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2); /* Button shadow */
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            width: 100%; /* Make buttons take up full width of their grid cell */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        button:hover {
+            background-color: #a1887f; /* Slightly lighter brown on hover */
+            transform: translateY(-2px); /* Slight lift */
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            background-color: #5d4037; /* Darker when clicked */
+            transform: translateY(1px); /* Push down effect */
+            box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-    <p>Izaberite koju operaciju želite izvršiti:</p>
-    <button onclick="zbrajanje()">Zbrajanje</button>
-    <button onclick="oduzimanje()">Oduzimanje</button>
-    <button onclick="mnozenje()">Množenje</button>
-    <button onclick="dijeljenje()">Dijeljenje</button>
-    <p id="demo"></p>
+    <div class="calculator-container">
+        <p>Izaberite koju operaciju želite izvršiti:</p>
+        <div id="demo"></div>
+        <div class="button-grid">
+            <button onclick="zbrajanje()">Zbrajanje</button>
+            <button onclick="oduzimanje()">Oduzimanje</button>
+            <button onclick="mnozenje()">Množenje</button>
+            <button onclick="dijeljenje()">Dijeljenje</button>
+        </div>
+    </div>
+
     <script>
-        var x = parseInt(prompt("Unesite prvi broj."));
-        var y = parseInt(prompt("Unesite drugi broj."));
+        // Ensure prompt logic runs after the page is loaded and styled
+        window.onload = function() {
+            let x, y;
+            do {
+                x = parseInt(prompt("Unesite prvi broj."));
+                y = parseInt(prompt("Unesite drugi broj."));
+                if (isNaN(x) || isNaN(y)) {
+                    alert("Molimo unesite valjane brojeve.");
+                }
+            } while (isNaN(x) || isNaN(y));
+
+            // Make x and y globally accessible within the script
+            window.x = x;
+            window.y = y;
+        };
+        
         var rezultat;
-        while(isNaN(x) || isNaN(y)){
-            x = parseInt(prompt("Unesite prvi broj."));
-            y = parseInt(prompt("Unesite drugi broj."));
-        }
+
         function zbrajanje(){
-            rezultat = x + y;
-            document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+            rezultat = window.x + window.y;
+            document.getElementById("demo").innerHTML = "Rezultat: " + rezultat;
         }
         function oduzimanje(){
-            rezultat = x - y;
-            document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+            rezultat = window.x - window.y;
+            document.getElementById("demo").innerHTML = "Rezultat: " + rezultat;
         }
         function mnozenje(){
-            rezultat = x * y;
-            document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+            rezultat = window.x * window.y;
+            document.getElementById("demo").innerHTML = "Rezultat: " + rezultat;
         }
         function dijeljenje(){
-            rezultat = x / y;
-           document.getElementById("demo").innerHTML = "Rezultat je " + rezultat;
+            if (window.y === 0) {
+                document.getElementById("demo").innerHTML = "Greška: Dijeljenje s nulom!";
+            } else {
+                rezultat = window.x / window.y;
+                document.getElementById("demo").innerHTML = "Rezultat: " + rezultat;
+            }
         }
-        
     </script>
 </body>
 </html>
