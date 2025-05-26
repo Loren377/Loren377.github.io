@@ -1,11 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kontaktirajte nas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        /* Apply fonts based on your provided CSS */
+        body {
+            font-family: 'Segoe UI', sans-serif; /* Main body font */
+            background-color: #fdfdfd; /* Body background from your CSS */
+            color: #333; /* Default text color */
+        }
+        h1, h2, h3, h4, option, select {
+            font-family: "Permanent Marker", cursive; /* Headings and select elements font */
+            font-weight: 400;
+            font-style: normal;
+        }
+        /* Custom gradient for the main title to match your header */
+        .gradient-title-bg {
+            background: linear-gradient(to bottom right, #946b4e, #ebda89);
+        }
+        /* Custom focus styles for inputs */
+        .input-focus-style:focus {
+            outline: none;
+            border-color: #715846;
+            box-shadow: 0 0 5px #715846;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl w-full bg-amber-50 rounded-lg shadow-xl p-8" style="background-color: wheat;">
+        <h1 class="text-4xl font-extrabold text-center mb-8 rounded-md p-2 gradient-title-bg" style="color: blanchedalmond;">
+            Kontaktirajte nas
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h2 class="text-2xl font-semibold mb-6 border-b-2 pb-2" style="color: #333; border-color: #ebda89;">Pošaljite nam poruku</h2>
+                <form class="space-y-6">
+                    <div>
+                        <label for="full-name" class="block text-sm font-medium" style="color: #333;">Ime i prezime</label>
+                        <input type="text" id="full-name" name="full-name" placeholder="Unesite ime i prezime"
+                               class="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm sm:text-sm input-focus-style"
+                               style="border-color: #ccc;" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium" style="color: #333;">Email adresa</label>
+                        <input type="email" id="email" name="email" placeholder="Unesite email adresu"
+                               class="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm sm:text-sm input-focus-style"
+                               style="border-color: #ccc;" required>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium" style="color: #333;">Naslov poruke</label>
+                        <input type="text" id="subject" name="subject" placeholder="Unesite naslov poruke"
+                               class="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm sm:text-sm input-focus-style"
+                               style="border-color: #ccc;" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium" style="color: #333;">Vaša poruka</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Unesite poruku..."
+                                  class="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm sm:text-sm input-focus-style"
+                                  style="border-color: #ccc;" required></textarea>
+                    </div>
+                    <div>
+                        <button type="submit"
+                                class="w-full flex justify-center py-3 px-6 border border-transparent rounded-md shadow-sm text-lg font-medium text-white transition duration-300 ease-in-out transform hover:scale-105"
+                                style="background-color: #946b4e; color: white;">
+                            Pošalji poruku
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <h2 class="text-2xl font-semibold mb-6 border-b-2 pb-2" style="color: #333; border-color: #ebda89;">Kontakt informacije</h2>
+                <div class="space-y-4" style="color: #333;">
+                    <p class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="color: #946b4e;" height="1.5em" viewBox="0 -960 960 960" width="1.5em" fill="#e3e3e3"><path d="M458-81q-79-4-148-37t-120-86.5q-51-53.5-80.5-124.27T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q149 0 259 94t135 236h-61q-17-84-71-150t-135-99v18q0 35-24 61t-59 26h-87v87q0 16.58-13.5 27.79T393-568h-83v88h110v125h-67L149-559q-5 20-7 39.67-2 19.66-2 39.33 0 135 91 233t227 106v60Zm392-26L716-241q-21 15-45.5 23t-50.07 8q-71.01 0-120.72-49.62Q450-309.24 450-380.12t49.62-120.38q49.62-49.5 120.5-49.5t120.38 49.71Q790-450.58 790-379.57q0 25.57-8.5 50.07T759-283l134 133-43 43ZM619.86-270Q666-270 698-301.86t32-78Q730-426 698.14-458t-78-32Q574-490 542-458.14t-32 78Q510-334 541.86-302t78 32Z"/></svg>
+                        <strong>Adresa:</strong> Lorem Ipsum 123, 10000 Zagreb, Hrvatska
+                    </p>
+                    <p class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 -960 960 960" width="1.5em" style="color: #946b4e;" fill="currentColor"><path d="M795-120q-116 0-236.5-56T335-335Q232-438 176-558.5T120-795q0-19.29 12.86-32.14Q145.71-840 165-840h140q14 0 24 10t14 25l26.93 125.64Q372-665 369.5-653.5t-10.73 19.73L259-533q26 44 55 82t64 72q37 38 78 69.5t86 55.5l95-98q10-11 23.15-15 13.15-4 25.85-2l119 26q15 4 25 16.04 10 12.05 10 26.96v135q0 19.29-12.86 32.14Q814.29-120 795-120ZM229-588l81-82-23-110H180q2 42 13.5 88.5T229-588Zm369 363q41 19 89 31t93 14v-107l-103-21-79 83ZM229-588Zm369 363Z"/></svg>
+                        <strong>Telefon:</strong> +385 1 2345 6789
+                    </p>
+                    <p class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" style="color: #946b4e;" height="1.5em" viewBox="0 -960 960 960" width="1.5em"><path d="M140-160q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h680q24 0 42 18t18 42v520q0 24-18 42t-42 18H140Zm340-302L140-685v465h680v-465L480-462Zm0-60 336-218H145l335 218ZM140-685v-55 520-465Z"/></svg>
+                        <strong>Email:</strong> info@loremipsum.hr
+                    </p>
+                </div>
+
+                <h2 class="text-2xl font-semibold mt-8 mb-6 border-b-2 pb-2" style="color: #333; border-color: #ebda89;">Naša lokacija</h2>
+                <div class="aspect-w-16 aspect-h-9 rounded-md overflow-hidden shadow-lg">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.564757519391!2d15.978135815568196!3d45.8150106791066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d785d0123456%3A0x123456789abcdef!2sTrg%20bana%20Josipa%20Jela%C4%8Di%C4%87a%2C%2010000%20Zagreb!5e0!3m2!1sen!2shr!4v1678901234567!5m2!1sen!2shr"
+                        width="100%"
+                        height="300"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Karta lokacije"
+                        class="rounded-md"
+                    ></iframe>
+                </div>
+
+                <h2 class="text-2xl font-semibold mt-8 mb-6 border-b-2 pb-2" style="color: #333; border-color: #ebda89;">Radno vrijeme</h2>
+                <div class="space-y-2" style="color: #333;">
+                    <p><strong>Ponedjeljak - Petak:</strong> 9:00 - 17:00</p>
+                    <p><strong>Subota:</strong> 10:00 - 14:00</p>
+                    <p><strong>Nedjelja:</strong> Zatvoreno</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

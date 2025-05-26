@@ -1,119 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Your Cart</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f7f7f7;
-      margin: 0;
-      padding: 0;
-    }
-    .cart-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 1em;
-    }
-    .cart-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .cart-table th, .cart-table td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-      vertical-align: middle;
-    }
-    .cart-table th {
-      background-color: #f0f0f0;
-    }
-    .cart-table img {
-      max-width: 60px;
-      height: auto;
-      border-radius: 4px;
-    }
-    .total {
-      text-align: right;
-      font-size: 1.2em;
-      margin-top: 1em;
-      font-weight: bold;
-    }
-    .cart-actions {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .cart-actions button {
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    #clear-cart {
-      background-color: #dc3545;
-      color: white;
-    }
-    .checkout-button {
-      background-color: #28a745;
-      color: white;
-    }
-    .empty-message {
-      text-align: center;
-      font-size: 1.2em;
-      margin-top: 2em;
-      color: #888;
-    }
-    .remove-btn {
-      background: none;
-      color: #dc3545;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Your Cart</title>
+      <link rel="stylesheet" href="/css/style.css">
+      <link rel="stylesheet" href="/css/responsive.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+      <style>
+        .breadcrumb a{
+          color: #333;
+        }
+        .breadcrumb li+li::before {
+          color: #333;
+        }
+      </style>
+    </head>
+  <body>
+      <header>
+          <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
+              <img id="logo" src="/img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
+              <h1>PAW HAVEN</h1>
+              <select id="menu" name="menu">
+                  <option>Main menu</option>
+                  <option value="Kontakt">Kontakt</option>
+                  <option value="O nama">O nama</option>
+                  <option value="Proizvodi">Proizvodi</option>
+              </select>
+          </div>
+      </header>
+      <main id="cart-page-content">
+          <nav aria-label="Breadcrumb">
+              <ol class="breadcrumb">
+                  <li><a href="/index.html">Home</a></li>
+                  <li><a href="/pages/proizvodi.html">Shop</a></li>
+                  <li>Cart</li>
+              </ol>
+          </nav>
 
-<div class="cart-container">
-  <h1>Your Shopping Cart</h1>
+          <h1>Your Shopping Cart</h1>
 
-  <table class="cart-table" id="cart-table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Image</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Subtotal</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="cart-items">
-      <!-- Cart items will go here -->
-    </tbody>
-  </table>
+          <div id="empty-message" style="text-align: center; margin-top: 20px; display: none;">
+              Your cart is empty. <a href="/pages/proizvodi.html">Start shopping now!</a>
+          </div>
 
-  <p class="total">Total: $<span id="cart-total">0.00</span></p>
+          <div class="cart-container">
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Product</th>
+                          <th>Image</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                          <th>Subtotal</th>
+                          <th>Remove</th>
+                      </tr>
+                  </thead>
+                  <tbody id="cart-items">
+                      </tbody>
+                  <tfoot>
+                      <tr>
+                          <td colspan="4" style="text-align: right;"><strong>Total:</strong></td>
+                          <td>$<span id="cart-total">0.00</span></td>
+                          <td></td>
+                      </tr>
+                  </tfoot>
+              </table>
+              <button id="clear-cart" class="clear-cart-button" style="display: none;">Clear Cart</button>
+              <a href="/pages/placanje.html" class="checkout-button" style="text-decoration: none;">Proceed to Checkout</a>
+          </div>
+      </main>
 
-  <div class="cart-actions">
-    <button id="clear-cart">🗑️ Clear Cart</button>
-    <button class="checkout-button" onclick="alert('Checkout not implemented')">Proceed to Checkout</button>
-  </div>
+      <a href="/pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
 
-  <p class="empty-message" id="empty-message" style="display: none;">Your cart is currently empty.</p>
-</div>
-
-<script src="/js/cart.js"></script>
-</body>
-</html>
+      <script src="/js/cart.js"></script>
+  </body>
+  </html>

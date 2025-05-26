@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Product Details</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,42 +28,40 @@
             <ol class="breadcrumb">
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/pages/proizvodi.html">Shop</a></li>
+                <li class="current-product-name"></li>
             </ol>
         </nav>
+
         <div class="gallery">
             <input type="radio" name="gallery" id="img1" checked>
             <input type="radio" name="gallery" id="img2">
             <input type="radio" name="gallery" id="img3">
 
             <div class="main-images">
-                <img src="/img/products/cat_food1.png" alt="Product Image 1">
-                <img src="/img/products/dog_food.png" alt="Product Image 2">
-                <img src="/img/products/cat_food2.png" alt="Product Image 3">
-            </div>
+                <img id="main-product-image" src="" alt="Product Image 1">
+                </div>
 
-            <div class="thumbnails">
-                <label for="img1"><img src="/img/products/cat_food1.png" alt="Thumb 1"></label>
-                <label for="img2"><img src="/img/products/dog_food.png" alt="Thumb 2"></label>
-                <label for="img3"><img src="/img/products/cat_food2.png" alt="Thumb 3"></label>
-            </div>
+            <div class="thumbnails" id="product-thumbnails">
+                <label for="img1"><img id="thumb-product-image" src="" alt="Thumb 1"></label>
+                </div>
         </div>
         <div class="product-info">
-
-            <h1 class="product-name">Healty Cat Food</h1>
-            <p class="product-sku">SKU: CAT-FOOD-001</p>
-            <p class="product-price">$19.99</p>
+            <h1 class="product-name"></h1>
+            <p class="product-sku">SKU: <span id="product-sku-display"></span></p>
+            <p class="product-price"></p>
             <p class="product-availability">Availability: <span class="in-stock">In Stock</span></p>
-            <p class="short-description">A healty cat food for your cat.</p>
+            <p class="short-description"></p>
 
             <div class="long-description">
                 <h4>Product Details:</h4>
-                <p>This is a high quality cat food for your cat. It is made from the best ingredients and is perfect for your cat.</p>
+                <p id="long-description-text"></p>
             </div>
 
             <form class="product-options" id="productForm">
-                <input type="hidden" name="productName" value="Healty Cat Food">
-                <input type="hidden" name="productSKU" value="CAT-FOOD-001">
-                <input type="hidden" name="productPrice" value="19.99">
+                <input type="hidden" name="productName" id="hidden-product-name">
+                <input type="hidden" name="productSKU" id="hidden-product-sku">
+                <input type="hidden" name="productPrice" id="hidden-product-price">
+                <input type="hidden" name="productImage" id="hidden-product-image">
 
                 <label for="size">Size:</label>
                 <select id="size" name="size">
@@ -72,45 +70,20 @@
                     <option value="Large">Large</option>
                 </select>
 
-                <label for="meat">meat:</label>
-                <select id="meat" name="meat">
-                    <option value="Fish">Fish</option>
-                    <option value="Chicken">Chicken</option>
-                    <option value="Beef">Beef</option>
-                </select>
-
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" min="1" value="1">
 
                 <button type="submit" class="add-to-cart">Add to Cart</button>
             </form>
         </div>
-    </main>
-
-
-
-
+        </main>
 
     <a href="/pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
 
-
-
-
-
-    
     <section id="product-details" style="margin-top: 2em; padding: 1em; background-color: #f9f9f9; border: 1px solid #ddd;">
         <h2>Details / Specifications</h2>
-        <p style="line-height: 1.6; font-size: 1.1em;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a justo ac libero scelerisque vehicula non sed justo. 
-            Morbi ut tincidunt elit. Integer pretium dui eget purus convallis, sit amet varius libero blandit. 
-            Donec at orci quis risus malesuada sagittis. Nam rutrum lorem at lorem facilisis tincidunt. 
-            Fusce volutpat, magna sit amet fermentum commodo, ex nisl suscipit odio, ac congue nisl erat ac metus. 
-            Sed vulputate, metus nec imperdiet malesuada, lorem justo dictum sem, non accumsan erat nunc non magna.
-        </p>
+        <p id="section-long-description" style="line-height: 1.6; font-size: 1.1em;"></p>
     </section>
-
-
-
 
     <section id="customer-reviews" style="margin-top: 2em; padding: 1em; background-color: #fff7f0; border: 1px solid #e0cfcf;">
         <h2>Customer Reviews</h2>
@@ -130,16 +103,11 @@
             <p>"The best meal kit I’ve tried so far. Fresh and flavorful."</p>
         </div>
 
-        <!-- Placeholder for more reviews -->
         <div class="review">
             <p><strong>Customer</strong> <span>⭐⭐⭐⭐</span></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit fermentum velit.</p>
         </div>
     </section>
-
-
-
-
 
     <section id="related-products" style="margin-top: 2em; padding: 1em; background-color: #f4f4f4; border: 1px solid #ccc;">
         <h2>Related Products</h2>
@@ -171,6 +139,46 @@
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             if (cartCount) cartCount.textContent = totalItems;
+
+            // Get product details from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const price = urlParams.get('price');
+            const image = urlParams.get('image');
+            const sku = urlParams.get('sku');
+            const shortDescription = urlParams.get('shortDescription');
+            const longDescription = urlParams.get('longDescription');
+
+            // Populate product details on the page
+            if (name) {
+                document.querySelector('.product-name').textContent = name;
+                document.querySelector('.current-product-name').textContent = name; // Update breadcrumb
+            }
+            if (sku) {
+                document.getElementById('product-sku-display').textContent = sku;
+            }
+            if (price) {
+                document.querySelector('.product-price').textContent = `$${parseFloat(price).toFixed(2)}`;
+            }
+            if (shortDescription) {
+                document.querySelector('.short-description').textContent = shortDescription;
+            }
+            if (longDescription) {
+                document.getElementById('long-description-text').textContent = longDescription;
+                document.getElementById('section-long-description').textContent = longDescription; // Update details section
+            }
+            if (image) {
+                document.getElementById('main-product-image').src = image;
+                document.getElementById('main-product-image').alt = name;
+                document.getElementById('thumb-product-image').src = image;
+                document.getElementById('thumb-product-image').alt = name;
+            }
+
+            // Set hidden form fields for add to cart
+            document.getElementById('hidden-product-name').value = name || '';
+            document.getElementById('hidden-product-sku').value = sku || '';
+            document.getElementById('hidden-product-price').value = price || '';
+            document.getElementById('hidden-product-image').value = image || '';
         });
 </script>
 </body>

@@ -7,40 +7,47 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     function renderCart() {
+        if (!cartItemsTable) return; // Only run if on kosarica.html
+
         cartItemsTable.innerHTML = '';
         let total = 0;
 
         if (cart.length === 0) {
             emptyMessage.style.display = 'block';
-            clearCartBtn.style.display = 'none';
+            if (clearCartBtn) clearCartBtn.style.display = 'none';
             return;
         } else {
             emptyMessage.style.display = 'none';
-            clearCartBtn.style.display = 'inline-block';
+            if (clearCartBtn) clearCartBtn.style.display = 'inline-block';
         }
 
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
 
+            // Construct options string (only 'Size' remains)
+            let optionsHtml = '';
+            if (item.size && item.size !== 'N/A') {
+                optionsHtml += `<small>Size: ${item.size}</small><br>`;
+            }
+
             row.innerHTML = `
-                <td>
-                    <strong>${item.name}</strong><br>
-                    <small>${item.description || ''}</small>
-                    <small>Size: ${item.size || 'N/A'}</small><br>
-                    <small>Meat: ${item.meat || 'N/A'}</small>
-                </td>
-                <td><img src="${item.image || '/img/placeholder.png'}" alt="${item.name}" style="max-width: 60px; height: auto;"></td>
-                <td>${item.quantity}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td>$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="remove-btn" data-index="${index}">✖</button></td>
-            `;
+                <td>
+                    <strong>${item.name}</strong><br>
+                    <small>${item.description || ''}</small><br>
+                    ${optionsHtml}
+                </td>
+                <td><img src="${item.image || '/img/placeholder.png'}" alt="${item.name}" style="max-width: 60px; height: auto;"></td>
+                <td>${item.quantity}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                <td><button class="remove-btn" data-index="${index}">✖</button></td>
+            `;
 
             cartItemsTable.appendChild(row);
             total += item.price * item.quantity;
         });
 
-        cartTotal.textContent = total.toFixed(2);
+        if (cartTotal) cartTotal.textContent = total.toFixed(2);
         attachRemoveHandlers();
     }
 
@@ -52,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cart.splice(index, 1);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 renderCart();
-                updateCartCountDisplay(); // Update the cart icon count after removal
+                updateCartCountDisplay();
             });
         });
     }
@@ -63,12 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 cart = [];
                 localStorage.removeItem('cart');
                 renderCart();
-                updateCartCountDisplay(); // Update the cart icon count after clearing
+                updateCartCountDisplay();
             }
         });
     }
 
-    renderCart(); // Initial render for the cart page
+    renderCart(); // Initial render for the cart page if applicable
 
     // Function to update the cart count display
     function updateCartCountDisplay() {
@@ -78,67 +85,49 @@ document.addEventListener('DOMContentLoaded', () => {
             cartCount.textContent = totalItems;
         }
     }
-    // Call it initially on the cart page too, in case user navigates back
-    updateCartCountDisplay();
-});
+    updateCartCountDisplay(); // Call it initially on all pages with a cart count element
 
-
-// Universal Add to Cart button handler
-document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButtons = document.querySelectorAll('button.add-to-cart, .product-card button');
-
-    addToCartButtons.forEach(button => {
+    // Universal Add to Cart button handler
+    document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
 
-            let productCard = button.closest('.product-info'); // Target the specific product-info div for extraction
-            let relatedProductCard = button.closest('.product-card, .product-card2'); // For related products section
+            let product = {};
+            let isDetailsPage = false;
 
-            let product;
+            // Check if it's the product-details page's add to cart button
+            const productForm = button.closest('#productForm');
+            if (productForm) {
+                isDetailsPage = true;
+                const name = productForm.querySelector('#hidden-product-name').value;
+                const price = parseFloat(productForm.querySelector('#hidden-product-price').value);
+                const image = productForm.querySelector('#hidden-product-image').value;
+                const quantity = parseInt(productForm.querySelector('#quantity').value);
+                const size = productForm.querySelector('#size') ? productForm.querySelector('#size').value : 'N/A';
+                const description = document.querySelector('.short-description')?.textContent || '';
 
-            if (productCard) { // This is the main product page "add to cart"
-                const name = productCard.querySelector('.product-name')?.textContent.trim();
-                const priceText = productCard.querySelector('.product-price')?.textContent.trim();
+                product = { name, price, quantity, image, description, size };
+
+            } else { // This is for product cards on products.html or related products
+                const productCard = button.closest('.product-card') || button.closest('.product-card2');
+                if (!productCard) return;
+
+                const name = productCard.querySelector('h4, h3')?.textContent.trim();
+                const priceText = productCard.querySelector('p')?.textContent.trim();
                 const price = parseFloat(priceText.replace('$', ''));
-                const quantityInput = productCard.querySelector('#quantity');
-                const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
-                const description = productCard.querySelector('.short-description')?.textContent || '';
+                const image = productCard.querySelector('.product-image')?.src || '';
+                const quantity = 1;
 
-                // Get selected image from the gallery
-                const activeImage = document.querySelector('.main-images img:checked, .main-images input[name="gallery"]:checked + img');
-                const image = activeImage ? activeImage.src : '/img/placeholder.png'; // Get image source
-                // Also get the selected options
-                const sizeSelect = productCard.querySelector('#size');
-                const selectedSize = sizeSelect ? sizeSelect.value : '';
-
-                const meatSelect = productCard.querySelector('#meat');
-                const selectedMeat = meatSelect ? meatSelect.value : '';
-
-                product = { name, price, quantity, image, description, size: selectedSize, meat: selectedMeat };
-
-            } else if (relatedProductCard) { // This is for product cards in the "Related Products" section
-                const name = relatedProductCard.querySelector('h3')?.textContent.trim();
-                const priceText = relatedProductCard.querySelector('p')?.textContent.trim();
-                const price = parseFloat(priceText.replace('$', ''));
-                const image = relatedProductCard.querySelector('.product-image')?.src || '';
-                const quantity = 1; // Default to 1 for related products, as there's no quantity input
-
-                product = { name, price, quantity, image, description: '' }; // No description for related products in HTML
-            } else {
-                return; // Should not happen if selectors are correct
+                product = { name, price, quantity, image, description: '', size: 'N/A', meat: 'N/A' };
             }
 
-            // Add or update product in localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const existingProductIndex = cart.findIndex(p => {
-                // For main product, match name, size, and meat
-                if (productCard) {
-                    return p.name === product.name && p.size === product.size && p.meat === product.meat;
+                if (isDetailsPage) {
+                    return p.name === product.name && p.size === product.size;
                 }
-                // For related products, just match name
                 return p.name === product.name;
             });
-
 
             if (existingProductIndex > -1) {
                 cart[existingProductIndex].quantity += product.quantity;
@@ -147,15 +136,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             localStorage.setItem('cart', JSON.stringify(cart));
-
-            // Update cart count
-            const cartCount = document.getElementById('cart-count');
-            if (cartCount) {
-                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-                cartCount.textContent = totalItems;
-            }
-
+            updateCartCountDisplay();
             alert(`${product.name} added to cart!`);
         });
     });
-});
+
+    // --- Slideshow script ---
+    const slides = document.querySelectorAll('#hero .slides img');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) slide.classList.add('active');
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Call slideshow functions outside DOMContentLoaded to ensure they run on index.html
+    showSlide(currentSlide);
+    setInterval(nextSlide, 5000);
+
+    // --- Menu Navigation Script ---
+    document.getElementById('menu').addEventListener('change', function () {
+        const selectedValue = this.value;
+        if (selectedValue) {
+            window.location.href = selectedValue;
+        }
+    });
+
+}); // End of DOMContentLoaded for cart logic

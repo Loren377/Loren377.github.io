@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naš Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        /* Apply fonts based on your provided CSS */
+        body {
+            font-family: 'Segoe UI', sans-serif; /* Main body font */
+            background-color: #fdfdfd; /* Body background from your CSS */
+            color: #333; /* Default text color */
+        }
+        h1, h2, h3, h4, option, select {
+            font-family: "Permanent Marker", cursive; /* Headings and select elements font */
+            font-weight: 400;
+            font-style: normal;
+        }
+        /* Custom gradient for the main title to match your header */
+        .gradient-title-bg {
+            background: linear-gradient(to bottom right, #946b4e, #ebda89);
+        }
+        /* Styling for links to match your previous design */
+        a {
+            color: #946b4e;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #715846;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto w-full bg-amber-50 rounded-lg shadow-xl p-8" style="background-color: wheat;">
+        <h1 class="text-4xl font-extrabold text-center mb-8 rounded-md p-2 gradient-title-bg" style="color: blanchedalmond;">
+            Naš Blog
+        </h1>
+
+        <div class="flex flex-col md:flex-row gap-10">
+            <div class="flex-grow">
+                <h2 class="text-2xl font-semibold mb-6 border-b-2 pb-2" style="color: #333; border-color: #ebda89;">Najnoviji Članci</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden" style="border: 1px solid #ebda89;">
+                        <img src="https://placehold.co/600x400/946b4e/ffffff?text=Slika+članka+1" alt="Istaknuta slika članka" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">
+                                <a href="#" style="color: #946b4e;">Naslov članka: Lorem Ipsum Dolor Sit Amet</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 mb-2">
+                                <span class="font-medium">Datum objave:</span> 23. svibnja 2025. |
+                                <span class="font-medium">Autor:</span> Lorem Ipsum
+                            </p>
+                            <p class="text-gray-700 text-sm mb-4">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...
+                            </p>
+                            <a href="#" class="inline-block py-2 px-4 rounded-md text-white font-medium transition duration-300 ease-in-out hover:scale-105"
+                               style="background-color: #946b4e; color: white;">
+                                Pročitaj više
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden" style="border: 1px solid #ebda89;">
+                        <img src="https://placehold.co/600x400/ebda89/333333?text=Slika+članka+2" alt="Istaknuta slika članka" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">
+                                <a href="#" style="color: #946b4e;">Naslov članka: Consectetur Adipiscing Elit</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 mb-2">
+                                <span class="font-medium">Datum objave:</span> 20. svibnja 2025. |
+                                <span class="font-medium">Autor:</span> Dolor Sit
+                            </p>
+                            <p class="text-gray-700 text-sm mb-4">
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit...
+                            </p>
+                            <a href="#" class="inline-block py-2 px-4 rounded-md text-white font-medium transition duration-300 ease-in-out hover:scale-105"
+                               style="background-color: #946b4e; color: white;">
+                                Pročitaj više
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden" style="border: 1px solid #ebda89;">
+                        <img src="https://placehold.co/600x400/715846/ffffff?text=Slika+članka+3" alt="Istaknuta slika članka" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">
+                                <a href="#" style="color: #946b4e;">Naslov članka: Labore et Dolore Magna</a>
+                            </h3>
+                            <p class="text-sm text-gray-600 mb-2">
+                                <span class="font-medium">Datum objave:</span> 15. svibnja 2025. |
+                                <span class="font-medium">Autor:</span> Amet Consectetur
+                            </p>
+                            <p class="text-gray-700 text-sm mb-4">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste...
+                            </p>
+                            <a href="#" class="inline-block py-2 px-4 rounded-md text-white font-medium transition duration-300 ease-in-out hover:scale-105"
+                               style="background-color: #946b4e; color: white;">
+                                Pročitaj više
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mt-10 space-x-2">
+                    <a href="#" class="px-4 py-2 rounded-md transition duration-300 ease-in-out" style="background-color: #946b4e; color: white;">1</a>
+                    <a href="#" class="px-4 py-2 rounded-md transition duration-300 ease-in-out" style="background-color: #ebda89; color: #333;">2</a>
+                    <a href="#" class="px-4 py-2 rounded-md transition duration-300 ease-in-out" style="background-color: #ebda89; color: #333;">3</a>
+                    <span class="px-4 py-2 text-gray-600">...</span>
+                    <a href="#" class="px-4 py-2 rounded-md transition duration-300 ease-in-out" style="background-color: #ebda89; color: #333;">Zadnja</a>
+                </div>
+            </div>
+
+            <div class="w-full md:w-72 flex-shrink-0">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8" style="border: 1px solid #ebda89;">
+                    <h3 class="text-xl font-semibold mb-4 border-b pb-2" style="color: #333; border-color: #ebda89;">Kategorije Bloga</h3>
+                    <ul class="space-y-2" style="color: #333;">
+                        <li><a href="#" class="block hover:underline" style="color: #946b4e;">Općenito (5)</a></li>
+                        <li><a href="#" class="block hover:underline" style="color: #946b4e;">Novosti (3)</a></li>
+                        <li><a href="#" class="block hover:underline" style="color: #946b4e;">Savjeti (7)</a></li>
+                        <li><a href="#" class="block hover:underline" style="color: #946b4e;">Događaji (2)</a></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8" style="border: 1px solid #ebda89;">
+                    <h3 class="text-xl font-semibold mb-4 border-b pb-2" style="color: #333; border-color: #ebda89;">Najnoviji Članci</h3>
+                    <ul class="space-y-3" style="color: #333;">
+                        <li>
+                            <a href="#" class="block text-sm font-medium hover:underline" style="color: #946b4e;">Kako odabrati pravi proizvod?</a>
+                            <p class="text-xs text-gray-500">23. svibnja 2025.</p>
+                        </li>
+                        <li>
+                            <a href="#" class="block text-sm font-medium hover:underline" style="color: #946b4e;">Naš novi asortiman</a>
+                            <p class="text-xs text-gray-500">20. svibnja 2025.</p>
+                        </li>
+                        <li>
+                            <a href="#" class="block text-sm font-medium hover:underline" style="color: #946b4e;">Savjeti za održavanje</a>
+                            <p class="text-xs text-gray-500">15. svibnja 2025.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6" style="border: 1px solid #ebda89;">
+                    <h3 class="text-xl font-semibold mb-4 border-b pb-2" style="color: #333; border-color: #ebda89;">Arhiva</h3>
+                    <ul class="space-y-2" style="color: #333;">
+                        <li><a href="#" class="block hover:underline" style="color: #946b4e;">Svibanj 2025.</a></li>
+                        <li><a href="#" class="block hover:underline" style="color: #946b4e;">Travanj 2025.</a></li>
+                        <li><a href="#" class="block hover:underline" style="color: #946b4e;">Ožujak 2025.</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
