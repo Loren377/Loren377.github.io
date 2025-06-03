@@ -137,7 +137,7 @@ main {
     max-width: 1200px;
     margin: auto;
     background-color: #ebda89;
-    margin: auto;
+    /* margin: auto; Removed duplicate */
     width: 100%;
     border: 5px solid;
 }
@@ -174,7 +174,7 @@ main {
     border-radius: 10px;
     object-fit: cover;
     background-color: white;
-    border-radius: 10px;
+    /* border-radius: 10px; Removed duplicate */
 }
 
 .category-title {
@@ -307,10 +307,13 @@ main {
 }
 
 .sidebar {
-    width: 150px;
+    width: 200px;
+    /* Increased width slightly for better readability of filters */
     padding: 15px;
     border: 1px solid #ebda89;
     background-color: wheat;
+    flex-shrink: 0;
+    /* Prevent sidebar from shrinking */
 }
 
 .filter-group {
@@ -322,6 +325,21 @@ main {
     font-size: 1.1em;
 }
 
+.filter-group label {
+    /* Ensure labels are block or inline-block for proper spacing if needed */
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    /* Ensure text is readable */
+}
+
+.filter-group input[type="checkbox"],
+.filter-group input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
 .main-content {
     flex: 1;
 }
@@ -332,59 +350,107 @@ main {
 
 .sorting {
     margin-bottom: 20px;
+    display: flex;
+    /* Align label and select nicely */
+    align-items: center;
 }
 
 .sorting label {
     font-weight: bold;
     margin-right: 10px;
+    color: white;
+    /* Make label visible on dark background */
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Adjusted minmax for card size */
     gap: 20px;
 }
 
 .product-card {
     border: 1px solid #ebda89;
     border-radius: 6px;
-    padding: 10px;
+    padding: 15px;
+    /* Increased padding slightly */
     text-align: center;
     background-color: wheat;
     transition: box-shadow 0.2s;
+    display: flex;
+    /* For button alignment */
+    flex-direction: column;
+    /* For button alignment */
+    justify-content: space-between;
+    /* For button alignment */
 }
 
 .product-card img {
     width: 100%;
-    height: auto;
-    max-height: 150px;
+    height: 150px;
+    /* Fixed height for image consistency */
     object-fit: cover;
     margin-bottom: 10px;
+    border-radius: 4px;
+    /* Rounded corners for image */
 }
 
 .product-card h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    /* Slightly larger title */
     margin: 10px 0 5px;
+    min-height: 2.5em;
+    /* Ensure space for two lines of title */
+    color: #333;
 }
 
 .product-card p {
-    font-size: 0.9rem;
-    margin: 5px 0;
+    /* Price */
+    font-size: 1rem;
+    /* Slightly larger price */
+    margin: 5px 0 10px;
+    /* Add margin bottom before buttons */
+    font-weight: bold;
+    color: #715846;
+}
+
+.product-card .buttons-container {
+    margin-top: auto;
+    /* Pushes this container to the bottom if content above is shorter */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Space between buttons */
 }
 
 .product-card button {
-    padding: 6px 12px;
+    padding: 8px 12px;
+    /* Adjusted padding */
     background-color: #946b4e;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
+    /* Make buttons full width */
+    font-size: 0.9rem;
 }
+
+.product-card button.details-button {
+    background-color: #a08b78;
+    /* Slightly different color for details */
+}
+
 
 .product-card button:hover {
     background-color: #c7b768;
     color: rgb(28, 94, 8);
 }
+
+.product-card button.details-button:hover {
+    background-color: #b9a896;
+}
+
 
 .pagination {
     margin-top: 30px;
@@ -392,6 +458,7 @@ main {
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
+    /* Allow wrapping on small screens */
 }
 
 .page-link {
@@ -400,6 +467,7 @@ main {
     text-decoration: none;
     color: white;
     border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .page-link.active {
@@ -408,10 +476,22 @@ main {
     border-color: #946b4e;
 }
 
-.page-link:hover {
+.page-link:hover:not(.active) {
+    /* Don't change hover for active link */
     background-color: #f0f0f0;
     color: #333;
 }
+
+.page-link.disabled {
+    /* Style for disabled Prev/Next */
+    color: #aaa;
+    pointer-events: none;
+    cursor: default;
+    background-color: #4a4a4a;
+    /* Darker disabled look */
+    border-color: #555;
+}
+
 
 /*....Pojedinacni Produkt....Pojedinacni Produkt....Pojedinacni Produkt....Pojedinacni Produkt....*/
 
@@ -421,8 +501,15 @@ main {
 }
 
 input[type="radio"] {
+    /* General radio, might conflict with filter radios if not specific */
+    /* display: none; -- This was for gallery, ensure filter radios are visible */
+}
+
+.gallery input[type="radio"] {
+    /* Specific to gallery radios */
     display: none;
 }
+
 
 .main-images img {
     display: none;
