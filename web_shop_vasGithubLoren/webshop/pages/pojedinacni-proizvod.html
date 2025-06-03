@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <body>
     <header>
       <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
-      <img id="logo" src="/img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
+      <img id="logo" src="../img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
       <h1>PAW HAVEN</h1>
         <select id="menu" name="menu">
             <option>Main menu</option>
@@ -26,8 +26,8 @@
     <main id="proizvodi">
         <nav aria-label="Breadcrumb">
             <ol class="breadcrumb">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/pages/proizvodi.html">Shop</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/proizvodi.html">Shop</a></li>
                 <li class="current-product-name"></li>
             </ol>
         </nav>
@@ -78,7 +78,7 @@
         </div>
         </main>
 
-    <a href="/pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+    <a href="../pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
 
     <section id="product-details" style="margin-top: 2em; padding: 1em; background-color: #f9f9f9; border: 1px solid #ddd;">
         <h2>Details / Specifications</h2>
@@ -113,26 +113,26 @@
         <h2>Related Products</h2>
         <div class="related-products-grid">
             <div class="product-card2">
-                <img class="product-image" src="/img/products/dog_sprej.jpg" alt="Product 1">
+                <img class="product-image" src="../img/products/dog_sprej.jpg" alt="Product 1">
                 <h3>Dog spray</h3>
                 <p>$8.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product-card2">
-                <img class="product-image" src="/img/products/dog_toy4.webp" alt="Product 2">
+                <img class="product-image" src="../img/products/dog_toy4.webp" alt="Product 2">
                 <h3>Dog toy</h3>
                 <p>$7.49</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="product-card2">
-                <img class="product-image" src="/img/products/leash_4.jfif" alt="Product 3">
+                <img class="product-image" src="../img/products/leash_4.jfif" alt="Product 3">
                 <h3>Dog leash</h3>
                 <p>$9.99</p>
                 <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
     </section>
-    <script src="/js/cart.js"></script>
+    <script src="../js/cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cartCount = document.getElementById('cart-count');

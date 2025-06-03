@@ -4,8 +4,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Your Cart</title>
-      <link rel="stylesheet" href="/css/style.css">
-      <link rel="stylesheet" href="/css/responsive.css">
+      <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/responsive.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   <body>
       <header>
           <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
-              <img id="logo" src="/img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
+              <img id="logo" src="../img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
               <h1>PAW HAVEN</h1>
               <select id="menu" name="menu">
                   <option>Main menu</option>
@@ -34,8 +34,8 @@
       <main id="cart-page-content">
           <nav aria-label="Breadcrumb">
               <ol class="breadcrumb">
-                  <li><a href="/index.html">Home</a></li>
-                  <li><a href="/pages/proizvodi.html">Shop</a></li>
+                  <li><a href="../index.html">Home</a></li>
+                  <li><a href="../pages/proizvodi.html">Shop</a></li>
                   <li>Cart</li>
               </ol>
           </nav>
@@ -43,7 +43,7 @@
           <h1>Your Shopping Cart</h1>
 
           <div id="empty-message" style="text-align: center; margin-top: 20px; display: none;">
-              Your cart is empty. <a href="/pages/proizvodi.html">Start shopping now!</a>
+              Your cart is empty. <a href="../pages/proizvodi.html">Start shopping now!</a>
           </div>
 
           <div class="cart-container">
@@ -69,12 +69,12 @@
                   </tfoot>
               </table>
               <button id="clear-cart" class="clear-cart-button" style="display: none;">Clear Cart</button>
-              <a href="/pages/placanje.html" class="checkout-button" style="text-decoration: none;">Proceed to Checkout</a>
+              <a href="../pages/placanje.html" class="checkout-button" style="text-decoration: none;">Proceed to Checkout</a>
           </div>
       </main>
 
-      <a href="/pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+      <a href="../pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
 
-      <script src="/js/cart.js"></script>
+      <script src="../js/cart.js"></script>
   </body>
   </html>

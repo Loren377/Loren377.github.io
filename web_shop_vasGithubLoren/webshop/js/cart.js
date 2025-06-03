@@ -31,17 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             row.innerHTML = `
-                <td>
-                    <strong>${item.name}</strong><br>
-                    <small>${item.description || ''}</small><br>
-                    ${optionsHtml}
-                </td>
-                <td><img src="${item.image || '/img/placeholder.png'}" alt="${item.name}" style="max-width: 60px; height: auto;"></td>
-                <td>${item.quantity}</td>
-                <td>$${item.price.toFixed(2)}</td>
-                <td>$${(item.price * item.quantity).toFixed(2)}</td>
-                <td><button class="remove-btn" data-index="${index}">✖</button></td>
-            `;
+             <td>
+                <strong>${item.name}</strong><br>
+                    <small>${item.description || ''}</small><br>
+                    ${optionsHtml}
+            </td>
+            <td><img src="${item.image || '../img/placeholder.png'}" alt="${item.name}" style="max-width: 60px; height: auto;"></td>
+            <td>${item.quantity}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td>$${(item.price * item.quantity).toFixed(2)}</td>
+            <td><button class="remove-btn" data-index="${index}">✖</button></td>
+            `;
 
             cartItemsTable.appendChild(row);
             total += item.price * item.quantity;
