@@ -9,6 +9,65 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for reviews if needed */
+        .review-form {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .review-form h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .review-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+        .review-form input[type="text"],
+        .review-form textarea,
+        .review-form select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .review-form button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .review-form button:hover {
+            background-color: #4cae4c;
+        }
+        .star-rating {
+            font-size: 1.5em;
+        }
+        .star-rating .star {
+            cursor: pointer;
+            color: #ccc; /* Default empty star color */
+        }
+        .star-rating .star.selected,
+        .star-rating .star:hover,
+        .star-rating .star:hover ~ .star { /* For hover effect */
+            color: #ffc107; /* Filled star color */
+        }
+        .reviews-list .review {
+             background-color: #fff;
+             padding: 10px;
+             margin-bottom: 10px;
+             border-radius: 4px;
+             border: 1px solid #eee;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,11 +75,12 @@
       <img id="logo" src="../img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
       <h1>PAW HAVEN</h1>
         <select id="menu" name="menu">
-            <option value="">Main menu</option> <!-- Empty value for placeholder -->
+            <option value="">Main menu</option>
             <option value="../index.html">Home</option>
             <option value="kontakt.html">Kontakt</option>
             <option value="o-nama.html">O nama</option>
             <option value="proizvodi.html">Proizvodi</option>
+            <option value="../blog.html">Blog</option>
         </select>
       </div>
       </header>
@@ -29,7 +89,7 @@
             <ol class="breadcrumb">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../pages/proizvodi.html">Shop</a></li>
-                <li class="current-product-name"></li>
+                <li class="current-product-name"></li> <!-- Populated by JS -->
             </ol>
         </nav>
 
@@ -43,6 +103,7 @@
                 </div>
 
             <div class="thumbnails" id="product-thumbnails">
+                <!-- Thumbnails will be populated if multiple images are available -->
                 <label for="img1"><img id="thumb-product-image" src="" alt="Thumb 1"></label>
                 </div>
         </div>
@@ -60,12 +121,13 @@
 
             <form class="product-options" id="productForm">
                 <input type="hidden" name="productName" id="hidden-product-name">
-                <input type="hidden" name="productSKU" id="hidden-product-sku">
+                <input type="hidden" name="productSKU" id="hidden-product-sku"> <!-- Ensure this is populated -->
                 <input type="hidden" name="productPrice" id="hidden-product-price">
                 <input type="hidden" name="productImage" id="hidden-product-image">
 
                 <label for="size">Size:</label>
                 <select id="size" name="size">
+                    <option value="N/A">N/A</option> <!-- Default for products without size -->
                     <option value="Small">Small</option>
                     <option value="Medium">Medium</option>
                     <option value="Large">Large</option>
@@ -86,100 +148,308 @@
         <p id="section-long-description" style="line-height: 1.6; font-size: 1.1em;"></p>
     </section>
 
-    <section id="customer-reviews" style="margin-top: 2em; padding: 1em; background-color: #fff7f0; border: 1px solid #e0cfcf;">
+    <section id="customer-reviews" style="margin-top: 2em; padding: 1.5em; background-color: #fff7f0; border: 1px solid #e0cfcf; border-radius: 8px;">
         <h2>Customer Reviews</h2>
-
-        <div class="review">
-            <p><strong>Jane Doe</strong> <span>⭐⭐⭐⭐⭐</span></p>
-            <p>"Absolutely delicious and well-packed. Will buy again!"</p>
+        <div id="reviews-list">
+            <!-- Reviews will be populated here by JS -->
+            <p class="no-reviews" style="color: #777;">No reviews yet. Be the first to review this product!</p>
         </div>
 
-        <div class="review">
-            <p><strong>John Smith</strong> <span>⭐⭐⭐⭐</span></p>
-            <p>"Tasty, but delivery took a bit longer than expected."</p>
-        </div>
-
-        <div class="review">
-            <p><strong>Emily C.</strong> <span>⭐⭐⭐⭐⭐</span></p>
-            <p>"The best meal kit I’ve tried so far. Fresh and flavorful."</p>
-        </div>
-
-        <div class="review">
-            <p><strong>Customer</strong> <span>⭐⭐⭐⭐</span></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit fermentum velit.</p>
+        <div class="review-form">
+            <h3>Write a Review</h3>
+            <form id="new-review-form">
+                <div>
+                    <label for="reviewer-name">Name:</label>
+                    <input type="text" id="reviewer-name" name="reviewerName" required>
+                </div>
+                <div>
+                    <label for="review-rating">Rating:</label>
+                    <div class="star-rating">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                    </div>
+                    <input type="hidden" id="review-rating" name="reviewRating" required>
+                </div>
+                <div>
+                    <label for="review-text">Review:</label>
+                    <textarea id="review-text" name="reviewText" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
         </div>
     </section>
 
-    <section id="related-products" style="margin-top: 2em; padding: 1em; background-color: #f4f4f4; border: 1px solid #ccc;">
+    <section id="related-products" style="margin-top: 2em; padding: 1.5em; background-color: #f4f4f4; border: 1px solid #ccc; border-radius: 8px;">
         <h2>Related Products</h2>
         <div class="related-products-grid">
-            <div class="product-card2">
-                <img class="product-image" src="../img/products/dog_sprej.jpg" alt="Product 1">
-                <h3>Dog spray</h3>
-                <p>$8.99</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card2">
-                <img class="product-image" src="../img/products/dog_toy4.webp" alt="Product 2">
-                <h3>Dog toy</h3>
-                <p>$7.49</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product-card2">
-                <img class="product-image" src="../img/products/leash_4.jfif" alt="Product 3">
-                <h3>Dog leash</h3>
-                <p>$9.99</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
+            <!-- Related products will be populated here by JS -->
+            <p class="no-related-products" style="color: #777;">No related products found.</p>
         </div>
     </section>
     <script src="../js/cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cartCount = document.getElementById('cart-count');
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            if (cartCount) cartCount.textContent = totalItems;
+            // Part of cart.js handles cart count initialization.
 
             // Get product details from URL parameters
             const urlParams = new URLSearchParams(window.location.search);
-            const name = urlParams.get('name');
-            const price = urlParams.get('price');
-            const image = urlParams.get('image');
-            const sku = urlParams.get('sku');
-            const shortDescription = urlParams.get('shortDescription');
-            const longDescription = urlParams.get('longDescription');
+            const productName = urlParams.get('name');
+            const productPrice = urlParams.get('price');
+            const productImage = urlParams.get('image');
+            const productSku = urlParams.get('sku'); // Crucial for reviews and related products
+            const productShortDescription = urlParams.get('shortDescription');
+            const productLongDescription = urlParams.get('longDescription');
+            const productCategory = urlParams.get('category'); // For related products
 
             // Populate product details on the page
-            if (name) {
-                document.querySelector('.product-name').textContent = name;
-                document.querySelector('.current-product-name').textContent = name; // Update breadcrumb
+            if (productName) {
+                document.querySelector('.product-name').textContent = productName;
+                document.querySelector('.current-product-name').textContent = productName;
             }
-            if (sku) {
-                document.getElementById('product-sku-display').textContent = sku;
+            if (productSku) {
+                document.getElementById('product-sku-display').textContent = productSku;
+                document.getElementById('hidden-product-sku').value = productSku;
+            } else {
+                // Fallback if SKU is not passed, though it's highly recommended for unique identification
+                const fallbackSku = productName ? productName.toLowerCase().replace(/\s+/g, '-') : 'unknown-product';
+                document.getElementById('product-sku-display').textContent = fallbackSku;
+                document.getElementById('hidden-product-sku').value = fallbackSku;
+                 console.warn("Product SKU not found in URL params, using fallback:", fallbackSku);
             }
-            if (price) {
-                document.querySelector('.product-price').textContent = `$${parseFloat(price).toFixed(2)}`;
+            if (productPrice) {
+                document.querySelector('.product-price').textContent = `$${parseFloat(productPrice).toFixed(2)}`;
             }
-            if (shortDescription) {
-                document.querySelector('.short-description').textContent = shortDescription;
+            if (productShortDescription) {
+                document.querySelector('.short-description').textContent = productShortDescription;
             }
-            if (longDescription) {
-                document.getElementById('long-description-text').textContent = longDescription;
-                document.getElementById('section-long-description').textContent = longDescription; // Update details section
+            if (productLongDescription) {
+                document.getElementById('long-description-text').textContent = productLongDescription;
+                document.getElementById('section-long-description').textContent = productLongDescription;
             }
-            if (image) {
-                document.getElementById('main-product-image').src = image;
-                document.getElementById('main-product-image').alt = name;
-                document.getElementById('thumb-product-image').src = image;
-                document.getElementById('thumb-product-image').alt = name;
+            if (productImage) {
+                document.getElementById('main-product-image').src = productImage;
+                document.getElementById('main-product-image').alt = productName;
+                document.getElementById('thumb-product-image').src = productImage; // Main image also as first thumb
+                document.getElementById('thumb-product-image').alt = productName;
+                // If you have more images, logic to populate more thumbnails would go here
             }
 
             // Set hidden form fields for add to cart
-            document.getElementById('hidden-product-name').value = name || '';
-            document.getElementById('hidden-product-sku').value = sku || '';
-            document.getElementById('hidden-product-price').value = price || '';
-            document.getElementById('hidden-product-image').value = image || '';
+            document.getElementById('hidden-product-name').value = productName || '';
+            document.getElementById('hidden-product-price').value = productPrice || '';
+            document.getElementById('hidden-product-image').value = productImage || '';
+            
+            const sizeSelect = document.getElementById('size');
+            if (productCategory === 'dog' && (productName.toLowerCase().includes('food') || productName.toLowerCase().includes('leash') || productName.toLowerCase().includes('collar'))) {
+                // Enable S/M/L for specific dog products
+                sizeSelect.disabled = false;
+                sizeSelect.value = 'Small'; // Default to Small
+            } else if (productCategory === 'cat' && productName.toLowerCase().includes('food')) {
+                 // Enable S/M/L for cat food
+                sizeSelect.disabled = false;
+                sizeSelect.value = 'Small';
+            }
+            else {
+                sizeSelect.value = 'N/A';
+                sizeSelect.disabled = true;
+            }
+
+
+            // --- Customer Reviews Logic ---
+            const reviewsList = document.getElementById('reviews-list');
+            const reviewForm = document.getElementById('new-review-form');
+            const currentProductSku = document.getElementById('hidden-product-sku').value; // Get the SKU of the current product
+            const noReviewsMsg = reviewsList.querySelector('.no-reviews');
+
+            function loadReviews() {
+                const allReviews = JSON.parse(localStorage.getItem('productReviews')) || {};
+                const productSpecificReviews = allReviews[currentProductSku] || [];
+                reviewsList.innerHTML = ''; // Clear current list (including "no reviews" message if it was added by default)
+
+                if (productSpecificReviews.length === 0) {
+                    reviewsList.innerHTML = '<p class="no-reviews" style="color: #777;">No reviews yet. Be the first to review this product!</p>';
+                } else {
+                    productSpecificReviews.forEach(review => {
+                        const reviewDiv = document.createElement('div');
+                        reviewDiv.classList.add('review');
+                        let stars = '';
+                        for (let i = 0; i < 5; i++) {
+                            stars += (i < review.rating) ? '⭐' : '☆';
+                        }
+                        reviewDiv.innerHTML = `
+                            <p><strong>${review.name}</strong> <span class="star-display">${stars}</span></p>
+                            <p>"${review.text}"</p>
+                            <small>Reviewed on: ${new Date(review.date).toLocaleDateString()}</small>
+                        `;
+                        reviewsList.appendChild(reviewDiv);
+                    });
+                }
+            }
+
+            // Star rating interaction
+            const stars = reviewForm.querySelectorAll('.star-rating .star');
+            const ratingInput = reviewForm.querySelector('#review-rating');
+
+            stars.forEach(star => {
+                star.addEventListener('click', () => {
+                    const ratingValue = star.dataset.value;
+                    ratingInput.value = ratingValue;
+                    stars.forEach(s => {
+                        s.classList.toggle('selected', s.dataset.value <= ratingValue);
+                        s.innerHTML = s.dataset.value <= ratingValue ? '★' : '☆'; // Filled vs Empty
+                    });
+                });
+                star.addEventListener('mouseover', () => {
+                    const hoverValue = star.dataset.value;
+                    stars.forEach(s => {
+                         s.innerHTML = s.dataset.value <= hoverValue ? '★' : '☆';
+                    });
+                });
+                star.addEventListener('mouseout', () => { // Reset to selected rating on mouseout
+                    const currentRating = ratingInput.value || 0;
+                    stars.forEach(s => {
+                        s.innerHTML = s.dataset.value <= currentRating ? '★' : '☆';
+                    });
+                });
+            });
+
+
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const reviewerName = reviewForm.querySelector('#reviewer-name').value;
+                    const reviewRating = reviewForm.querySelector('#review-rating').value;
+                    const reviewText = reviewForm.querySelector('#review-text').value;
+
+                    if (!reviewerName || !reviewRating || !reviewText) {
+                        alert('Please fill in all fields and select a rating.');
+                        return;
+                    }
+
+                    const newReview = {
+                        name: reviewerName,
+                        rating: parseInt(reviewRating),
+                        text: reviewText,
+                        date: new Date().toISOString()
+                    };
+
+                    let allReviews = JSON.parse(localStorage.getItem('productReviews')) || {};
+                    if (!allReviews[currentProductSku]) {
+                        allReviews[currentProductSku] = [];
+                    }
+                    allReviews[currentProductSku].push(newReview);
+                    localStorage.setItem('productReviews', JSON.stringify(allReviews));
+
+                    loadReviews();
+                    reviewForm.reset();
+                    // Reset stars visual state
+                    stars.forEach(s => {
+                        s.classList.remove('selected');
+                        s.innerHTML = '☆';
+                    });
+                    ratingInput.value = '';
+                });
+            }
+            loadReviews(); // Initial load of reviews
+
+            // --- Related Products Logic ---
+            const relatedProductsGrid = document.querySelector('.related-products-grid');
+            const noRelatedMsg = relatedProductsGrid.querySelector('.no-related-products');
+
+            async function fetchAllProductsData() {
+                // In a real app, you'd fetch this from a server or a JSON file.
+                // For now, we'll try to simulate by fetching from `proizvodi.html` if possible,
+                // or use a predefined list if on a different domain or direct access.
+                // This is a simplified placeholder. You'll need a robust way to get all product data.
+                // For this example, let's assume we can't fetch from proizvodi.html directly.
+                // We'll create a sample list here. Replace with actual data source.
+
+                // This is where you'd ideally load your full product catalog
+                // For demonstration, using a simplified, hardcoded list:
+                // You should replace this with a fetch to a JSON file or similar
+                const sampleProducts = [
+                    // Dog Products
+                    { name: "Chewy Dog Toy", price: "14.50", image: "../img/products/dog_toy4.webp", sku: "DOG-TOY-001", category: "dog", shortDescription: "Durable toy.", longDescription: "Longer desc."},
+                    { name: "Healthy Dog Food", price: "29.99", image: "../img/products/dog_food.png", sku: "DOG-FOOD-001", category: "dog", shortDescription: "Nutritious food.", longDescription: "Longer desc."},
+                    { name: "Durable Dog Leash", price: "19.99", image: "../img/products/lanac1.jpg", sku: "DOG-ACCESSORY-001", category: "dog", shortDescription: "Strong leash.", longDescription: "Longer desc."},
+                    { name: "Travel Dog Kennel", price: "55.00", image: "../img/products/dog_box.jpg", sku: "DOG-HOUSE-001", category: "dog", shortDescription: "Portable kennel.", longDescription: "Longer desc."},
+                    // Cat Products
+                    { name: "Healthy Cat Food (Chicken & Fish)", price: "22.50", image: "../img/products/cat_food1.png", sku: "CAT-FOOD-001", category: "cat", shortDescription: "Tasty cat food.", longDescription: "Longer desc."},
+                    { name: "Feather Cat Toy", price: "9.99", image: "../img/products/cat_igracke.jpg", sku: "CAT-TOY-001", category: "cat", shortDescription: "Fun feather toy.", longDescription: "Longer desc."},
+                    { name: "Premium Cat Food", price: "35.50", image: "../img/products/cat_hrana2.jpg", sku: "CAT-FOOD-004", category: "cat", shortDescription: "High-quality cat food.", longDescription: "Longer desc."},
+                    { name: "Luxury Cat Bed", price: "65.00", image: "../img/products/cat_food1.png", sku: "CAT-LUX-BED-001", category: "cat", shortDescription: "Plush cat bed.", longDescription: "Longer desc."},
+                    // Add more products as they are in your proizvodi.html for better matching
+                ];
+                return sampleProducts;
+            }
+
+
+            async function displayRelatedProducts() {
+                const allProducts = await fetchAllProductsData();
+                let related = [];
+
+                if (productCategory) {
+                    related = allProducts.filter(p =>
+                        p.sku !== currentProductSku && // Exclude the current product
+                        p.category === productCategory
+                    );
+                } else {
+                    // Fallback: if no category, maybe show random products or by some other logic
+                    // For now, just filter out current product
+                    related = allProducts.filter(p => p.sku !== currentProductSku);
+                }
+
+                // Shuffle and take a few (e.g., 3)
+                related.sort(() => 0.5 - Math.random());
+                const productsToShow = related.slice(0, 3);
+
+                relatedProductsGrid.innerHTML = ''; // Clear current (including "no related" message)
+
+                if (productsToShow.length === 0) {
+                    relatedProductsGrid.innerHTML = '<p class="no-related-products" style="color: #777;">No related products found.</p>';
+                } else {
+                    productsToShow.forEach(p => {
+                        const card = document.createElement('div');
+                        card.classList.add('product-card2'); // Use the styling for related product cards
+
+                        // Construct URL for the related product's detail page
+                        const detailUrlParams = new URLSearchParams();
+                        detailUrlParams.append('name', p.name);
+                        detailUrlParams.append('price', p.price);
+                        detailUrlParams.append('image', p.image);
+                        detailUrlParams.append('sku', p.sku);
+                        detailUrlParams.append('shortDescription', p.shortDescription);
+                        detailUrlParams.append('longDescription', p.longDescription);
+                        detailUrlParams.append('category', p.category);
+                        const detailUrl = `../pages/pojedinacni-proizvod.html?${detailUrlParams.toString()}`;
+
+
+                        card.innerHTML = `
+                            <a href="${detailUrl}" style="text-decoration:none; color:inherit;">
+                                <img class="product-image" src="${p.image}" alt="${p.name}">
+                                <h3>${p.name}</h3>
+                                <p>$${parseFloat(p.price).toFixed(2)}</p>
+                            </a>
+                            <button class="add-to-cart"
+                                data-name="${p.name}"
+                                data-price="${p.price}"
+                                data-image="${p.image}"
+                                data-sku="${p.sku}"
+                                data-short-description="${p.shortDescription}"
+                            >Add to Cart</button>
+                        `;
+                        // The generic 'add-to-cart' listener in cart.js will handle this button
+                        // if the data attributes are correctly set.
+                        relatedProductsGrid.appendChild(card);
+                    });
+                }
+            }
+            if (currentProductSku) { // Only run if we have a product SKU
+                 displayRelatedProducts();
+            }
         });
 </script>
 </body>
