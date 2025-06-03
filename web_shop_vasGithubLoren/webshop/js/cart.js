@@ -13,34 +13,42 @@ document.addEventListener('DOMContentLoaded', () => {
         let total = 0;
 
         if (cart.length === 0) {
-            emptyMessage.style.display = 'block';
+            if (emptyMessage) emptyMessage.style.display = 'block';
             if (clearCartBtn) clearCartBtn.style.display = 'none';
+            // Also hide the table and checkout button if cart is empty on cart page
+            const cartContainer = document.querySelector('.cart-container table');
+            const checkoutButton = document.querySelector('.cart-container .checkout-button');
+            if (cartContainer) cartContainer.style.display = 'none';
+            if (checkoutButton) checkoutButton.style.display = 'none';
+            if (cartTotal) cartTotal.textContent = '0.00'; // Ensure total is reset
             return;
         } else {
-            emptyMessage.style.display = 'none';
+            if (emptyMessage) emptyMessage.style.display = 'none';
             if (clearCartBtn) clearCartBtn.style.display = 'inline-block';
+            const cartContainerTable = document.querySelector('.cart-container table');
+            const checkoutButton = document.querySelector('.cart-container .checkout-button');
+            if (cartContainerTable) cartContainerTable.style.display = 'table'; // Or 'block' if you changed display
+            if (checkoutButton) checkoutButton.style.display = 'inline-block'; // Or 'block'
         }
 
         cart.forEach((item, index) => {
             const row = document.createElement('tr');
-
-            // Construct options string (only 'Size' remains)
             let optionsHtml = '';
             if (item.size && item.size !== 'N/A') {
-                optionsHtml += `<small>Size: ${item.size}</small><br>`;
+                optionsHtml += `<small>Veličina: ${item.size}</small><br>`;
             }
 
             row.innerHTML = `
-             <td>
+             <td data-label="Product">
                 <strong>${item.name}</strong><br>
                     <small>${item.description || ''}</small><br>
                     ${optionsHtml}
             </td>
-            <td><img src="${item.image || '../img/placeholder.png'}" alt="${item.name}" style="max-width: 60px; height: auto;"></td>
-            <td>${item.quantity}</td>
-            <td>$${item.price.toFixed(2)}</td>
-            <td>$${(item.price * item.quantity).toFixed(2)}</td>
-            <td><button class="remove-btn" data-index="${index}">✖</button></td>
+            <td data-label="Image"><img src="${item.image || '../img/placeholder.png'}" alt="${item.name}" style="max-width: 60px; height: auto;"></td>
+            <td data-label="Quantity">${item.quantity}</td>
+            <td data-label="Price">$${item.price.toFixed(2)}</td>
+            <td data-label="Subtotal">$${(item.price * item.quantity).toFixed(2)}</td>
+            <td data-label="Remove"><button class="remove-btn" data-index="${index}">✖</button></td>
             `;
 
             cartItemsTable.appendChild(row);
@@ -54,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function attachRemoveHandlers() {
         const removeButtons = document.querySelectorAll('.remove-btn');
         removeButtons.forEach(button => {
+            // To prevent multiple listeners, remove old one if any, or ensure it's added once.
+            // A simple way is to replace the button or rely on the cart re-render clearing old ones.
+            // For now, assuming re-render handles it.
             button.addEventListener('click', () => {
                 const index = button.getAttribute('data-index');
                 cart.splice(index, 1);
@@ -77,52 +88,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCart(); // Initial render for the cart page if applicable
 
-    // Function to update the cart count display
     function updateCartCountDisplay() {
-        const cartCount = document.getElementById('cart-count');
-        if (cartCount) {
+        const cartCountElements = document.querySelectorAll('#cart-count'); // Target all elements with this ID
+        if (cartCountElements.length > 0) {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
+            cartCountElements.forEach(el => el.textContent = totalItems);
         }
     }
-    updateCartCountDisplay(); // Call it initially on all pages with a cart count element
+    updateCartCountDisplay();
 
-    // Universal Add to Cart button handler
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', (e) => {
+    // Universal Add to Cart button handler using EVENT DELEGATION
+    document.body.addEventListener('click', function (e) {
+        const addToCartButton = e.target.closest('.add-to-cart');
+
+        if (addToCartButton) {
             e.preventDefault();
 
             let product = {};
             let isDetailsPage = false;
 
-            // Check if it's the product-details page's add to cart button
-            const productForm = button.closest('#productForm');
+            const productForm = addToCartButton.closest('#productForm');
             if (productForm) {
                 isDetailsPage = true;
                 const name = productForm.querySelector('#hidden-product-name').value;
                 const price = parseFloat(productForm.querySelector('#hidden-product-price').value);
                 const image = productForm.querySelector('#hidden-product-image').value;
-                const quantity = parseInt(productForm.querySelector('#quantity').value);
+                const quantity = parseInt(productForm.querySelector('#quantity').value) || 1;
                 const size = productForm.querySelector('#size') ? productForm.querySelector('#size').value : 'N/A';
-                const description = document.querySelector('.short-description')?.textContent || '';
+
+                // Try to get description more specifically from the details page structure
+                const shortDescriptionElement = document.querySelector('main#proizvodi .product-info .short-description');
+                const description = shortDescriptionElement ? shortDescriptionElement.textContent : '';
 
                 product = { name, price, quantity, image, description, size };
 
-            } else { // This is for product cards on products.html or related products
-                const productCard = button.closest('.product-card') || button.closest('.product-card2');
-                if (!productCard) return;
+            } else {
+                const productCard = addToCartButton.closest('.product-card') || addToCartButton.closest('.product-card2');
+                if (!productCard) {
+                    console.warn("Add to Cart button clicked, but no product card found.", addToCartButton);
+                    return;
+                }
 
-                const name = productCard.querySelector('h4, h3')?.textContent.trim();
-                const priceText = productCard.querySelector('p')?.textContent.trim();
-                const price = parseFloat(priceText.replace('$', ''));
-                const image = productCard.querySelector('.product-image')?.src || '';
+                const name = productCard.dataset.name || productCard.querySelector('h4, h3')?.textContent.trim();
+                const priceText = productCard.dataset.price || productCard.querySelector('p:not([class])')?.textContent.trim(); // Target price P specifically
+                const price = parseFloat(String(priceText).replace('$', ''));
+                const image = productCard.dataset.image || productCard.querySelector('.product-image')?.src || '';
+                const shortDesc = productCard.dataset.shortDescription || '';
+                const sku = productCard.dataset.sku || ''; // Get SKU
                 const quantity = 1;
 
-                product = { name, price, quantity, image, description: '', size: 'N/A', meat: 'N/A' };
+                if (!name || isNaN(price)) {
+                    console.error("Could not extract product details from card:", productCard);
+                    alert("Error: Could not add product to cart. Details missing.");
+                    return;
+                }
+                product = { name, price, quantity, image, description: shortDesc, size: 'N/A', sku };
             }
 
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existingProductIndex = cart.findIndex(p => {
+            let localCart = JSON.parse(localStorage.getItem('cart')) || []; // Use localCart to avoid conflict with global `cart`
+
+            // Use SKU for existing product check if available, otherwise name and size
+            const existingProductIndex = localCart.findIndex(p => {
+                if (product.sku && p.sku) { // If both current product and cart item have SKU
+                    if (isDetailsPage) {
+                        return p.sku === product.sku && p.size === product.size;
+                    }
+                    return p.sku === product.sku; // For cards, SKU should be enough if variants are separate products
+                }
+                // Fallback to name and size if SKU is not consistently used
                 if (isDetailsPage) {
                     return p.name === product.name && p.size === product.size;
                 }
@@ -130,43 +163,47 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (existingProductIndex > -1) {
-                cart[existingProductIndex].quantity += product.quantity;
+                localCart[existingProductIndex].quantity += product.quantity;
             } else {
-                cart.push(product);
+                localCart.push(product);
             }
 
-            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('cart', JSON.stringify(localCart));
+            cart = localCart; // Update global cart variable used by renderCart on cart page
             updateCartCountDisplay();
             alert(`${product.name} added to cart!`);
-        });
-    });
-
-    // --- Slideshow script ---
-    const slides = document.querySelectorAll('#hero .slides img');
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) slide.classList.add('active');
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Call slideshow functions outside DOMContentLoaded to ensure they run on index.html
-    showSlide(currentSlide);
-    setInterval(nextSlide, 5000);
-
-    // --- Menu Navigation Script ---
-    document.getElementById('menu').addEventListener('change', function () {
-        const selectedValue = this.value;
-        if (selectedValue) {
-            window.location.href = selectedValue;
         }
     });
 
-}); // End of DOMContentLoaded for cart logic
+    // --- Slideshow script ---
+    const slidesContainer = document.querySelector('#hero .slides');
+    if (slidesContainer) {
+        const slides = slidesContainer.querySelectorAll('img');
+        if (slides.length > 0) {
+            let currentSlide = 0;
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) slide.classList.add('active');
+                });
+            }
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            showSlide(currentSlide); // Initial display
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+    }
+
+    // --- Menu Navigation Script ---
+    const menuSelect = document.getElementById('menu');
+    if (menuSelect) {
+        menuSelect.addEventListener('change', function () {
+            const selectedValue = this.value;
+            if (selectedValue && selectedValue !== "Main menu") { // "Main menu" option might have no value or an empty value
+                window.location.href = selectedValue;
+            }
+        });
+    }
+});
