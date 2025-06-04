@@ -1,548 +1,294 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Products</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-      <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
-      <img id="logo" src="../img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
-      <h1>PAW HAVEN</h1>
-        <select id="menu" name="menu">
-            <option value="">Main menu</option> <!-- Empty value for placeholder -->
-            <option value="../index.html">Home</option>
-            <option value="kontakt.html">Kontakt</option>
-            <option value="o-nama.html">O nama</option>
-        </select>
-      </div>
-      </header>
-      <main id="proizvodi">
-        <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-                <li><a href="../index.html">Home</a></li>
-                <li>Shop</li>
-            </ol>
-        </nav>
-        <h1>Quality Pet Supplies for Dogs & Cats</h1>
-        <a href="../pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
-        <div class="container">
-            <aside class="sidebar">
-                <h3>Filter By</h3>
-
-                <div class="filter-group">
-                <h4>Category</h4>
-                <label><input type="checkbox" name="category" value="dog"> Dog Supplies</label><br>
-                <label><input type="checkbox" name="category" value="cat"> Cat Supplies</label>
-                </div>
-
-                <div class="filter-group">
-                <h4>Price</h4>
-                <label><input type="radio" name="price" value="under20"> Under $20</label><br>
-                <label><input type="radio" name="price" value="20to50"> $20–$50</label><br>
-                <label><input type="radio" name="price" value="over50"> Over $50</label><br>
-                <label><input type="radio" name="price" value="all" checked> All Prices</label>
-                </div>
-            </aside>
-
-        <div class="main-content">
-            <div class="sorting">
-                <label for="sort">Sort by:</label>
-                <select id="sort">
-                <option value="popular">Most Popular</option>
-                <option value="price-low-high">Price: Low to High</option>
-                <option value="price-high-low">Price: High to Low</option>
-                <option value="newest">Newest First</option>
-                </select>
-            </div>
-
-            <div class="product-grid">
-                <div class="product-card"
-                     data-name="Chewy Dog Toy"
-                     data-price="14.50"
-                     data-image="../img/products/dog_toy4.webp"
-                     data-sku="DOG-TOY-001"
-                     data-category="dog"
-                     data-short-description="A durable chewy toy for dogs of all sizes."
-                     data-long-description="This chewy dog toy is made from high-quality non-toxic rubber and is designed to withstand even the most aggressive chewers. It helps promote dental health by cleaning teeth and massaging gums during playtime.">
-                    <img class="product-image" src="../img/products/dog_toy4.webp" alt="Dog Toy">
-                    <h4>Chewy Dog Toy</h4>
-                    <p>$14.50</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Dog Chew Toy (Assorted)"
-                     data-price="18.00"
-                     data-image="../img/products/dog_igracke.jpg"
-                     data-sku="DOG-TOY-002"
-                     data-category="dog"
-                     data-short-description="An assorted collection of dog chew toys."
-                     data-long-description="Keep your dog entertained with this variety pack of chew toys. Made from safe, durable materials, these toys are perfect for hours of fun and help maintain good dental hygiene.">
-                    <img class="product-image" src="../img/products/dog_igracke.jpg" alt="Dog Toy">
-                    <h4>Dog Chew Toy</h4>
-                    <p>$18.00</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Rubber Dog Toy"
-                     data-price="11.25"
-                     data-image="../img/products/dog_igracke2.jpg"
-                     data-sku="DOG-TOY-003"
-                     data-category="dog"
-                     data-short-description="A resilient rubber toy for strong chewers."
-                     data-long-description="This robust rubber dog toy is built to last. Its unique design provides hours of chewing satisfaction and helps to reduce plaque and tartar buildup. Ideal for active dogs.">
-                    <img class="product-image" src="../img/products/dog_igracke2.jpg" alt="Dog Toy">
-                    <h4>Rubber Dog Toy</h4>
-                    <p>$11.25</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Healthy Dog Food"
-                     data-price="29.99"
-                     data-image="../img/products/dog_food.png"
-                     data-sku="DOG-FOOD-001"
-                     data-category="dog"
-                     data-short-description="Nutrient-rich food for a balanced canine diet."
-                     data-long-description="Our healthy dog food is formulated with premium ingredients to provide complete and balanced nutrition for dogs of all life stages. Promotes healthy digestion, coat, and energy levels.">
-                    <img class="product-image" src="../img/products/dog_food.png" alt="Dog Food">
-                    <h4>Healthy Dog Food</h4>
-                    <p>$29.99</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Healthy Cat Food (Chicken & Fish)"
-                     data-price="22.50"
-                     data-image="../img/products/cat_food1.png"
-                     data-sku="CAT-FOOD-001"
-                     data-category="cat"
-                     data-short-description="A delicious and nutritious meal for your feline friend."
-                     data-long-description="This healthy cat food blend of chicken and fish provides essential proteins and nutrients for your cat's well-being. It supports a strong immune system and healthy coat.">
-                    <img class="product-image" src="../img/products/cat_food1.png" alt="Cat Food">
-                    <h4>Healthy Cat Food</h4>
-                    <p>$22.50</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Healthy Cat Food (Salmon Blend)"
-                     data-price="26.75"
-                     data-image="../img/products/cat_food2.png"
-                     data-sku="CAT-FOOD-002"
-                     data-category="cat"
-                     data-short-description="Premium salmon blend for a healthy and active cat."
-                     data-long-description="Give your cat the best with our salmon blend cat food. Rich in Omega-3 fatty acids for a shiny coat and healthy skin. Made with natural ingredients for optimal digestion.">
-                    <img class="product-image" src="../img/products/cat_food2.png" alt="Cat Food">
-                    <h4>Healthy Cat Food</h4>
-                    <p>$26.75</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Healthy Cat Food (Tuna Delight)"
-                     data-price="23.00"
-                     data-image="../img/products/cat_food3.png"
-                     data-sku="CAT-FOOD-003"
-                     data-category="cat"
-                     data-short-description="Irresistible tuna flavor for even the pickiest eaters."
-                     data-long-description="Your cat will love the taste of our tuna delight cat food. It's packed with vitamins and minerals to support overall health and vitality. A perfect meal for happy, healthy cats.">
-                    <img class="product-image" src="../img/products/cat_food3.png" alt="Cat Food">
-                    <h4>Healthy Cat Food</h4>
-                    <p>$23.00</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Premium Cat Food"
-                     data-price="35.50"
-                     data-image="../img/products/cat_hrana2.jpg"
-                     data-sku="CAT-FOOD-004"
-                     data-category="cat"
-                     data-short-description="High-quality ingredients for your cat's dietary needs."
-                     data-long-description="This premium cat food offers a balanced diet with carefully selected ingredients to meet all your cat's nutritional requirements. Promotes lean muscle mass and a healthy urinary tract.">
-                    <img class="product-image" src="../img/products/cat_hrana2.jpg" alt="Cat Food">
-                    <h4>Healthy Cat Food</h4>
-                    <p>$35.50</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Feather Cat Toy"
-                     data-price="9.99"
-                     data-image="../img/products/cat_igracke.jpg"
-                     data-sku="CAT-TOY-001"
-                     data-category="cat"
-                     data-short-description="An engaging toy with feathers to stimulate play."
-                     data-long-description="Entice your cat with this interactive feather toy. Designed to mimic natural prey, it encourages hunting instincts and provides endless entertainment for your feline companion.">
-                    <img class="product-image" src="../img/products/cat_igracke.jpg" alt="Cat Toy">
-                    <h4>Cat Toy</h4>
-                    <p>$9.99</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Dog Repellent Spray"
-                     data-price="15.75"
-                     data-image="../img/products/dog_sprej.jpg"
-                     data-sku="DOG-CARE-001"
-                     data-category="dog"
-                     data-short-description="Effective spray to deter unwanted dog behaviors."
-                     data-long-description="Our dog repellent spray is a safe and effective way to discourage your dog from chewing, scratching, or marking in unwanted areas. Formulated with natural ingredients, it's safe for pets and home.">
-                    <img class="product-image" src="../img/products/dog_sprej.jpg" alt="Dog Spray">
-                    <h4>Dog Spray</h4>
-                    <p>$15.75</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Pet Training Spray"
-                     data-price="16.50"
-                     data-image="../img/products/dog_sprej2.jpg"
-                     data-sku="DOG-CARE-002"
-                     data-category="dog"
-                     data-short-description="Aid for house training and behavior correction."
-                     data-long-description="This training spray helps guide your pet to designated areas for training and discourages them from areas you want to protect. A useful tool for consistent behavior management.">
-                    <img class="product-image" src="../img/products/dog_sprej2.jpg" alt="Dog Spray">
-                    <h4>Dog Spray</h4>
-                    <p>$16.50</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Durable Dog Leash"
-                     data-price="19.99"
-                     data-image="../img/products/lanac1.jpg"
-                     data-sku="DOG-ACCESSORY-001"
-                     data-category="dog"
-                     data-short-description="Strong and comfortable leash for daily walks."
-                     data-long-description="Made from high-quality, durable materials, this dog leash provides a secure and comfortable grip for both you and your dog. Perfect for daily walks and training sessions.">
-                    <img class="product-image" src="../img/products/lanac1.jpg" alt="Dog Leash">
-                    <h4>Dog Leash</h4>
-                    <p>$19.99</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Adjustable Dog Leash"
-                     data-price="21.00"
-                     data-image="../img/products/leash_4.jfif"
-                     data-sku="DOG-ACCESSORY-002"
-                     data-category="dog"
-                     data-short-description="Versatile leash with adjustable length for different needs."
-                     data-long-description="This adjustable dog leash offers flexibility for various walking conditions. Easily change the length to suit your preference and your dog's size, providing comfort and control.">
-                    <img class="product-image" src="../img/products/leash_4.jfif" alt="Dog Leash">
-                    <h4>Dog Leash</h4>
-                    <p>$21.00</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Stylish Dog Collar & Leash Set"
-                     data-price="25.50"
-                     data-image="../img/products/ogrlica_lanac.jpg"
-                     data-sku="DOG-ACCESSORY-003"
-                     data-category="dog"
-                     data-short-description="A fashionable and functional set for your dog."
-                     data-long-description="Elevate your dog's style with this elegant collar and leash set. Crafted for durability and comfort, it's perfect for everyday use and special occasions.">
-                    <img class="product-image" src="../img/products/ogrlica_lanac.jpg" alt="Dog Leash">
-                    <h4>Dog Leash</h4>
-                    <p>$25.50</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-
-                <div class="product-card"
-                     data-name="Travel Dog Kennel"
-                     data-price="55.00"
-                     data-image="../img/products/dog_box.jpg"
-                     data-sku="DOG-HOUSE-001"
-                     data-category="dog"
-                     data-short-description="Portable and secure kennel for travel and home."
-                     data-long-description="This lightweight and sturdy dog kennel is perfect for safe travel and comfortable resting at home. Easy to assemble and clean, it provides a secure space for your canine companion.">
-                    <img class="product-image" src="../img/products/dog_box.jpg" alt="Dog Kennel">
-                    <h4>Dog Kennel</h4>
-                    <p>$55.00</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-                <div class="product-card"
-                     data-name="Luxury Cat Bed"
-                     data-price="65.00"
-                     data-image="../img/products/cat-bed.jpg"
-                     data-sku="CAT-LUX-BED-001"
-                     data-category="cat"
-                     data-short-description="A plush and luxurious bed for your discerning cat."
-                     data-long-description="Spoil your feline friend with this ultra-soft luxury cat bed. Provides ultimate comfort and warmth, making it the perfect spot for naps and relaxation. Machine washable for easy care.">
-                    <img class="product-image" src="../img/products/cat-bed.jpg" alt="Luxury Cat Bed">
-                    <h4>Luxury Cat Bed</h4>
-                    <p>$65.00</p>
-                    <div class="buttons-container">
-                        <button class="add-to-cart">Add to Cart</button>
-                        <button class="details-button">View Details</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pagination">
-                <!-- Pagination links will be generated by JavaScript -->
-            </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pet Products</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/responsive.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0 1em;">
+        <img id="logo" src="../img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
+        <h1>PAW HAVEN</h1>
+            <select id="menu" name="menu">
+                <option value="">Main menu</option> <!-- Empty value for placeholder -->
+                <option value="../index.html">Home</option>
+                <option value="kontakt.html">Kontakt</option>
+                <option value="o-nama.html">O nama</option>
+            </select>
         </div>
-      </main>
-      <script src="../js/cart.js"></script>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Cart count update (this part is from your existing script, kept for cart icon update)
-            // const cartCount = document.getElementById('cart-count');
-            // const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            // const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            // if (cartCount) cartCount.textContent = totalItems;
+        </header>
+        <main id="proizvodi">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li>Shop</li>
+                </ol>
+            </nav>
+            <h1>Quality Pet Supplies for Dogs & Cats</h1>
+            <a href="../pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
+            <div class="container">
+                <aside class="sidebar">
+                    <h3>Filter By</h3>
 
-            // Product Filtering, Sorting, and Pagination Logic
-            const productGrid = document.querySelector('.product-grid');
-            const allProductElements = Array.from(productGrid.querySelectorAll('.product-card'));
-            let allProductsData = [];
+                    <div class="filter-group">
+                    <h4>Category</h4>
+                    <label><input type="checkbox" name="category" value="dog"> Dog Supplies</label><br>
+                    <label><input type="checkbox" name="category" value="cat"> Cat Supplies</label>
+                    </div>
 
-            allProductElements.forEach((card, index) => {
-                allProductsData.push({
-                    element: card,
-                    id: index, // Original index for stable sorting
-                    name: card.dataset.name,
-                    price: parseFloat(card.dataset.price),
-                    image: card.dataset.image,
-                    sku: card.dataset.sku,
-                    category: card.dataset.category,
-                    shortDescription: card.dataset.shortDescription,
-                    longDescription: card.dataset.longDescription,
-                });
-            });
+                    <div class="filter-group">
+                    <h4>Price</h4>
+                    <label><input type="radio" name="price" value="under20"> Under $20</label><br>
+                    <label><input type="radio" name="price" value="20to50"> $20–$50</label><br>
+                    <label><input type="radio" name="price" value="over50"> Over $50</label><br>
+                    <label><input type="radio" name="price" value="all" checked> All Prices</label>
+                    </div>
+                </aside>
 
-            let filteredAndSortedProducts = [...allProductsData];
-            const productsPerPage = 6;
-            let currentPage = 1;
+            <div class="main-content">
+                <div class="sorting">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort">
+                    <option value="popular">Most Popular</option>
+                    <option value="price-low-high">Price: Low to High</option>
+                    <option value="price-high-low">Price: High to Low</option>
+                    <option value="newest">Newest First</option>
+                    </select>
+                </div>
 
-            // Filter and Sort Elements
-            const sortSelect = document.getElementById('sort');
-            const categoryCheckboxes = document.querySelectorAll('.sidebar .filter-group input[type="checkbox"][name="category"]');
-            const priceRadios = document.querySelectorAll('.sidebar .filter-group input[type="radio"][name="price"]');
-            const paginationContainer = document.querySelector('.pagination');
+                <div class="product-grid">
+                    <!-- Products will be dynamically inserted here by JavaScript -->
+                </div>
 
-            function applyFiltersAndSort() {
-                let productsToShow = [...allProductsData];
+                <div class="pagination">
+                    <!-- Pagination links will be generated by JavaScript -->
+                </div>
+            </div>
+        </main>
+        <script src="../js/cart.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => { // Make it async
+                // ... (cart count logic) ...
 
-                // 1. Category Filter
-                const selectedCategories = Array.from(categoryCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value); // value is "dog" or "cat"
+                const productGrid = document.querySelector('.product-grid');
+                let allProductsData = []; // This will be populated from JSON
 
-                if (selectedCategories.length > 0) {
-                    productsToShow = productsToShow.filter(p => selectedCategories.includes(p.category));
-                }
+                const sortSelect = document.getElementById('sort');
+                const categoryCheckboxes = document.querySelectorAll('.sidebar .filter-group input[type="checkbox"][name="category"]');
+                const priceRadios = document.querySelectorAll('.sidebar .filter-group input[type="radio"][name="price"]');
+                const paginationContainer = document.querySelector('.pagination');
 
-                // 2. Price Filter
-                const selectedPriceRadio = Array.from(priceRadios).find(radio => radio.checked);
-                if (selectedPriceRadio && selectedPriceRadio.value !== "all") {
-                    const priceValue = selectedPriceRadio.value;
-                    productsToShow = productsToShow.filter(p => {
-                        if (priceValue === 'under20') return p.price < 20;
-                        if (priceValue === '20to50') return p.price >= 20 && p.price <= 50;
-                        if (priceValue === 'over50') return p.price > 50;
-                        return true;
-                    });
-                }
+                const productsPerPage = 6;
+                let currentPage = 1;
+                let filteredAndSortedProducts = [];
 
-                // 3. Sorting
-                const sortBy = sortSelect.value;
-                switch (sortBy) {
-                    case 'price-low-high':
-                        productsToShow.sort((a, b) => a.price - b.price);
-                        break;
-                    case 'price-high-low':
-                        productsToShow.sort((a, b) => b.price - a.price);
-                        break;
-                    case 'newest': // Sort by original index descending (newest first)
-                        productsToShow.sort((a, b) => b.id - a.id);
-                        break;
-                    case 'popular': // Sort by original index ascending (default/popular)
-                    default:
-                        productsToShow.sort((a, b) => a.id - b.id);
-                        break;
-                }
-
-                filteredAndSortedProducts = productsToShow;
-                currentPage = 1; // Reset to first page after any filter/sort change
-                renderProductGrid();
-                updatePaginationControls();
-            }
-
-            function renderProductGrid() {
-                productGrid.innerHTML = ''; // Clear existing products
-
-                const startIndex = (currentPage - 1) * productsPerPage;
-                const endIndex = startIndex + productsPerPage;
-                const productsToDisplayOnPage = filteredAndSortedProducts.slice(startIndex, endIndex);
-
-                if (productsToDisplayOnPage.length === 0) {
-                    const noProductsMessage = document.createElement('p');
-                    noProductsMessage.textContent = 'No products match your criteria.';
-                    noProductsMessage.style.color = 'white';
-                    noProductsMessage.style.textAlign = 'center';
-                    noProductsMessage.style.gridColumn = '1 / -1'; // Span across all columns if grid is still active
-                    productGrid.appendChild(noProductsMessage);
-                } else {
-                    productsToDisplayOnPage.forEach(productData => {
-                        // Re-attach "View Details" listener to this specific element being appended
-                        const detailsButton = productData.element.querySelector('.details-button');
-                        if (detailsButton) { // Ensure button exists
-                             detailsButton.addEventListener('click', () => {
-                                const params = new URLSearchParams();
-                                params.append('name', productData.name);
-                                params.append('price', productData.price);
-                                params.append('image', productData.image);
-                                params.append('sku', productData.sku);
-                                params.append('shortDescription', productData.shortDescription);
-                                params.append('longDescription', productData.longDescription);
-                                params.append('category', productData.category);
-                                window.location.href = `../pages/pojedinacni-proizvod.html?${params.toString()}`;
-                            });
+                async function loadAndInitializeProducts() {
+                    try {
+                        const response = await fetch('../data/products.json'); // Adjust path if your products.json is elsewhere
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
                         }
-                        productGrid.appendChild(productData.element);
-                    });
+                        const productsJson = await response.json();
+
+                        allProductsData = productsJson.map((prod, index) => {
+                            // Create the product card element dynamically
+                            const card = document.createElement('div');
+                            card.classList.add('product-card');
+                            // Set data attributes on the card itself for easy access if needed by cart.js or details navigation
+                            card.dataset.name = prod.name;
+                            card.dataset.price = prod.price;
+                            card.dataset.image = prod.image;
+                            card.dataset.sku = prod.sku;
+                            card.dataset.category = prod.category;
+                            card.dataset.shortDescription = prod.shortDescription;
+                            card.dataset.longDescription = prod.longDescription;
+
+
+                            card.innerHTML = `
+                                <img class="product-image" src="${prod.image}" alt="${prod.name}">
+                                <h4>${prod.name}</h4>
+                                <p>$${parseFloat(prod.price).toFixed(2)}</p>
+                                <div class="buttons-container">
+                                    <button class="add-to-cart">Add to Cart</button>
+                                    <button class="details-button">View Details</button>
+                                </div>
+                            `;
+                            return {
+                                element: card, // The dynamically created DOM element
+                                id: index, // Original index for stable "popular" sort
+                                name: prod.name,
+                                price: parseFloat(prod.price),
+                                image: prod.image,
+                                sku: prod.sku,
+                                category: prod.category,
+                                shortDescription: prod.shortDescription,
+                                longDescription: prod.longDescription,
+                            };
+                        });
+
+                        applyFiltersAndSort(); // Initial filter, sort, and render
+
+                    } catch (error) {
+                        console.error("Could not fetch or initialize products:", error);
+                        productGrid.innerHTML = "<p style='color:white; text-align:center;'>Error loading products. Please try again later.</p>";
+                    }
                 }
-            }
 
-            function updatePaginationControls() {
-                paginationContainer.innerHTML = ''; // Clear old pagination links
-                const totalPages = Math.ceil(filteredAndSortedProducts.length / productsPerPage);
 
-                if (totalPages <= 1) {
-                     // If only one page or no products, explicitly clear pagination or leave it empty
+                function applyFiltersAndSort() {
+                    let productsToShow = [...allProductsData];
+
+                    // 1. Category Filter
+                    const selectedCategories = Array.from(categoryCheckboxes)
+                        .filter(cb => cb.checked)
+                        .map(cb => cb.value);
+
+                    if (selectedCategories.length > 0) {
+                        productsToShow = productsToShow.filter(p => selectedCategories.includes(p.category));
+                    }
+
+                    // 2. Price Filter
+                    const selectedPriceRadio = Array.from(priceRadios).find(radio => radio.checked);
+                    if (selectedPriceRadio && selectedPriceRadio.value !== "all") {
+                        const priceValue = selectedPriceRadio.value;
+                        productsToShow = productsToShow.filter(p => {
+                            if (priceValue === 'under20') return p.price < 20;
+                            if (priceValue === '20to50') return p.price >= 20 && p.price <= 50;
+                            if (priceValue === 'over50') return p.price > 50;
+                            return true;
+                        });
+                    }
+
+                    // 3. Sorting
+                    const sortBy = sortSelect.value;
+                    switch (sortBy) {
+                        case 'price-low-high':
+                            productsToShow.sort((a, b) => a.price - b.price);
+                            break;
+                        case 'price-high-low':
+                            productsToShow.sort((a, b) => b.price - a.price);
+                            break;
+                        case 'newest':
+                            productsToShow.sort((a, b) => b.id - a.id); // Assuming higher id means newer
+                            break;
+                        case 'popular':
+                        default:
+                            productsToShow.sort((a, b) => a.id - b.id); // Default order
+                            break;
+                    }
+
+                    filteredAndSortedProducts = productsToShow;
+                    currentPage = 1;
+                    renderProductGrid();
+                    updatePaginationControls();
+                }
+
+                function renderProductGrid() {
+                    productGrid.innerHTML = '';
+
+                    const startIndex = (currentPage - 1) * productsPerPage;
+                    const endIndex = startIndex + productsPerPage;
+                    const productsToDisplayOnPage = filteredAndSortedProducts.slice(startIndex, endIndex);
+
+                    if (productsToDisplayOnPage.length === 0) {
+                        const noProductsMessage = document.createElement('p');
+                        noProductsMessage.textContent = 'No products match your criteria.';
+                        noProductsMessage.style.color = 'white';
+                        noProductsMessage.style.textAlign = 'center';
+                        noProductsMessage.style.gridColumn = '1 / -1';
+                        productGrid.appendChild(noProductsMessage);
+                    } else {
+                        productsToDisplayOnPage.forEach(productData => {
+                            // Attach "View Details" listener specifically to this dynamically created element's button
+                            const detailsButton = productData.element.querySelector('.details-button');
+                            if (detailsButton) {
+                                detailsButton.addEventListener('click', () => {
+                                    const params = new URLSearchParams();
+                                    params.append('name', productData.name);
+                                    params.append('price', String(productData.price));
+                                    params.append('image', productData.image);
+                                    params.append('sku', productData.sku);
+                                    params.append('shortDescription', productData.shortDescription);
+                                    params.append('longDescription', productData.longDescription);
+                                    params.append('category', productData.category);
+                                    window.location.href = `../pages/pojedinacni-proizvod.html?${params.toString()}`;
+                                });
+                            }
+                            // The "Add to Cart" button will be handled by the event delegation in cart.js
+                            // using the data-* attributes set on productData.element (the card itself).
+                            productGrid.appendChild(productData.element);
+                        });
+                    }
+                }
+
+                function updatePaginationControls() {
                     paginationContainer.innerHTML = '';
-                    return;
-                }
+                    const totalPages = Math.ceil(filteredAndSortedProducts.length / productsPerPage);
 
-                // Prev button
-                if (currentPage > 1) {
-                    const prevButton = document.createElement('a');
-                    prevButton.href = '#prev';
-                    prevButton.classList.add('page-link');
-                    prevButton.innerHTML = '« Prev';
-                    prevButton.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        if (currentPage > 1) {
+                    if (totalPages <= 1) {
+                        return;
+                    }
+
+                    if (currentPage > 1) {
+                        const prevButton = document.createElement('a');
+                        prevButton.href = '#prev';
+                        prevButton.classList.add('page-link');
+                        prevButton.innerHTML = '« Prev';
+                        prevButton.addEventListener('click', (e) => {
+                            e.preventDefault();
                             currentPage--;
                             renderProductGrid();
                             updatePaginationControls();
-                        }
-                    });
-                    paginationContainer.appendChild(prevButton);
-                }
-
-
-                // Page number links
-                for (let i = 1; i <= totalPages; i++) {
-                    const pageLink = document.createElement('a');
-                    pageLink.href = '#' + i;
-                    pageLink.classList.add('page-link');
-                    pageLink.textContent = i;
-                    if (i === currentPage) {
-                        pageLink.classList.add('active');
+                        });
+                        paginationContainer.appendChild(prevButton);
                     }
-                    pageLink.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        currentPage = i;
-                        renderProductGrid();
-                        updatePaginationControls();
-                    });
-                    paginationContainer.appendChild(pageLink);
-                }
 
-                // Next button
-                if (currentPage < totalPages) {
-                    const nextButton = document.createElement('a');
-                    nextButton.href = '#next';
-                    nextButton.classList.add('page-link');
-                    nextButton.innerHTML = 'Next »';
-                    nextButton.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        if (currentPage < totalPages) {
+                    for (let i = 1; i <= totalPages; i++) {
+                        const pageLink = document.createElement('a');
+                        pageLink.href = '#' + i;
+                        pageLink.classList.add('page-link');
+                        pageLink.textContent = i;
+                        if (i === currentPage) {
+                            pageLink.classList.add('active');
+                        }
+                        pageLink.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            currentPage = i;
+                            renderProductGrid();
+                            updatePaginationControls();
+                        });
+                        paginationContainer.appendChild(pageLink);
+                    }
+
+                    if (currentPage < totalPages) {
+                        const nextButton = document.createElement('a');
+                        nextButton.href = '#next';
+                        nextButton.classList.add('page-link');
+                        nextButton.innerHTML = 'Next »';
+                        nextButton.addEventListener('click', (e) => {
+                            e.preventDefault();
                             currentPage++;
                             renderProductGrid();
                             updatePaginationControls();
-                        }
-                    });
-                    paginationContainer.appendChild(nextButton);
+                        });
+                        paginationContainer.appendChild(nextButton);
+                    }
                 }
-            }
 
-            // Event Listeners for filters and sort
-            sortSelect.addEventListener('change', applyFiltersAndSort);
-            priceRadios.forEach(radio => radio.addEventListener('change', applyFiltersAndSort));
-            categoryCheckboxes.forEach(checkbox => checkbox.addEventListener('change', applyFiltersAndSort));
-            
-            // Initial Render
-            applyFiltersAndSort();
+                // Event Listeners
+                sortSelect.addEventListener('change', applyFiltersAndSort);
+                priceRadios.forEach(radio => radio.addEventListener('change', applyFiltersAndSort));
+                categoryCheckboxes.forEach(checkbox => checkbox.addEventListener('change', applyFiltersAndSort));
 
-            // Keep original "View Details" logic for products that might not be re-rendered
-            // This part is moved inside renderProductGrid to re-attach for displayed items
-            // document.querySelectorAll('.product-card .details-button').forEach(button => {
-            //     button.addEventListener('click', (e) => {
-            //         const productCard = e.target.closest('.product-card');
-            //         // ... (original details navigation logic)
-            //     });
-            // });
-        });
-</script>
-</body>
-</html>
+                // Initial Load
+                await loadAndInitializeProducts();
+            });
+    </script>
+    </body>
+    </html>

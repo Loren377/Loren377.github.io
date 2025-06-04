@@ -1,0 +1,146 @@
+[
+    {
+        "name": "Chewy Dog Toy",
+        "price": "14.50",
+        "image": "../img/products/dog_toy4.webp",
+        "sku": "DOG-TOY-001",
+        "category": "dog",
+        "shortDescription": "A durable chewy toy for dogs of all sizes.",
+        "longDescription": "This chewy dog toy is made from high-quality non-toxic rubber and is designed to withstand even the most aggressive chewers. It helps promote dental health by cleaning teeth and massaging gums during playtime."
+    },
+    {
+        "name": "Healthy Dog Food",
+        "price": "29.99",
+        "image": "../img/products/dog_food.png",
+        "sku": "DOG-FOOD-001",
+        "category": "dog",
+        "shortDescription": "Nutrient-rich food for a balanced canine diet.",
+        "longDescription": "Our healthy dog food is formulated with premium ingredients to provide complete and balanced nutrition for dogs of all life stages. Promotes healthy digestion, coat, and energy levels."
+    },
+    {
+        "name": "Durable Dog Leash",
+        "price": "19.99",
+        "image": "../img/products/lanac1.jpg",
+        "sku": "DOG-ACCESSORY-001",
+        "category": "dog",
+        "shortDescription": "Strong and comfortable leash for daily walks.",
+        "longDescription": "Made from high-quality, durable materials, this dog leash provides a secure and comfortable grip for both you and your dog. Perfect for daily walks and training sessions."
+    },
+    {
+        "name": "Travel Dog Kennel",
+        "price": "55.00",
+        "image": "../img/products/dog_box.jpg",
+        "sku": "DOG-HOUSE-001",
+        "category": "dog",
+        "shortDescription": "Portable and secure kennel for travel and home.",
+        "longDescription": "This lightweight and sturdy dog kennel is perfect for safe travel and comfortable resting at home. Easy to assemble and clean, it provides a secure space for your canine companion."
+    },
+    {
+        "name": "Healthy Cat Food (Chicken & Fish)",
+        "price": "22.50",
+        "image": "../img/products/cat_food1.png",
+        "sku": "CAT-FOOD-001",
+        "category": "cat",
+        "shortDescription": "A delicious and nutritious meal for your feline friend.",
+        "longDescription": "This healthy cat food blend of chicken and fish provides essential proteins and nutrients for your cat's well-being. It supports a strong immune system and healthy coat."
+    },
+    {
+        "name": "Feather Cat Toy",
+        "price": "9.99",
+        "image": "../img/products/cat_igracke.jpg",
+        "sku": "CAT-TOY-001",
+        "category": "cat",
+        "shortDescription": "An engaging toy with feathers to stimulate play.",
+        "longDescription": "Entice your cat with this interactive feather toy. Designed to mimic natural prey, it encourages hunting instincts and provides endless entertainment for your feline companion."
+    },
+    {
+        "name": "Premium Cat Food",
+        "price": "35.50",
+        "image": "../img/products/cat_hrana2.jpg",
+        "sku": "CAT-FOOD-004",
+        "category": "cat",
+        "shortDescription": "High-quality ingredients for your cat's dietary needs.",
+        "longDescription": "This premium cat food offers a balanced diet with carefully selected ingredients to meet all your cat's nutritional requirements. Promotes lean muscle mass and a healthy urinary tract."
+    },
+    {
+        "name": "Luxury Cat Bed",
+        "price": "65.00",
+        "image": "../img/products/cat-bed.jpg",
+        "sku": "CAT-LUX-BED-001",
+        "category": "cat",
+        "shortDescription": "A plush and luxurious bed for your discerning cat.",
+        "longDescription": "Spoil your feline friend with this ultra-soft luxury cat bed. Provides ultimate comfort and warmth, making it the perfect spot for naps and relaxation. Machine washable for easy care."
+    },
+    {
+        "name": "Dog Chew Toy (Assorted)",
+        "price": "18.00",
+        "image": "../img/products/dog_igracke.jpg",
+        "sku": "DOG-TOY-002",
+        "category": "dog",
+        "shortDescription": "An assorted collection of dog chew toys.",
+        "longDescription": "Keep your dog entertained with this variety pack of chew toys. Made from safe, durable materials, these toys are perfect for hours of fun and help maintain good dental hygiene."
+    },
+    {
+        "name": "Rubber Dog Toy",
+        "price": "11.25",
+        "image": "../img/products/dog_igracke2.jpg",
+        "sku": "DOG-TOY-003",
+        "category": "dog",
+        "shortDescription": "A resilient rubber toy for strong chewers.",
+        "longDescription": "This robust rubber dog toy is built to last. Its unique design provides hours of chewing satisfaction and helps to reduce plaque and tartar buildup. Ideal for active dogs."
+    },
+    {
+        "name": "Healthy Cat Food (Salmon Blend)",
+        "price": "26.75",
+        "image": "../img/products/cat_food2.png",
+        "sku": "CAT-FOOD-002",
+        "category": "cat",
+        "shortDescription": "Premium salmon blend for a healthy and active cat.",
+        "longDescription": "Give your cat the best with our salmon blend cat food. Rich in Omega-3 fatty acids for a shiny coat and healthy skin. Made with natural ingredients for optimal digestion."
+    },
+    {
+        "name": "Healthy Cat Food (Tuna Delight)",
+        "price": "23.00",
+        "image": "../img/products/cat_food3.png",
+        "sku": "CAT-FOOD-003",
+        "category": "cat",
+        "shortDescription": "Irresistible tuna flavor for even the pickiest eaters.",
+        "longDescription": "Your cat will love the taste of our tuna delight cat food. It's packed with vitamins and minerals to support overall health and vitality. A perfect meal for happy, healthy cats."
+    },
+    {
+        "name": "Dog Repellent Spray",
+        "price": "15.75",
+        "image": "../img/products/dog_sprej.jpg",
+        "sku": "DOG-CARE-001",
+        "category": "dog",
+        "shortDescription": "Effective spray to deter unwanted dog behaviors.",
+        "longDescription": "Our dog repellent spray is a safe and effective way to discourage your dog from chewing, scratching, or marking in unwanted areas. Formulated with natural ingredients, it's safe for pets and home."
+    },
+    {
+        "name": "Pet Training Spray",
+        "price": "16.50",
+        "image": "../img/products/dog_sprej2.jpg",
+        "sku": "DOG-CARE-002",
+        "category": "dog",
+        "shortDescription": "Aid for house training and behavior correction.",
+        "longDescription": "This training spray helps guide your pet to designated areas for training and discourages them from areas you want to protect. A useful tool for consistent behavior management."
+    },
+    {
+        "name": "Adjustable Dog Leash",
+        "price": "21.00",
+        "image": "../img/products/leash_4.jfif",
+        "sku": "DOG-ACCESSORY-002",
+        "category": "dog",
+        "shortDescription": "Versatile leash with adjustable length for different needs.",
+        "longDescription": "This adjustable dog leash offers flexibility for various walking conditions. Easily change the length to suit your preference and your dog's size, providing comfort and control."
+    },
+    {
+        "name": "Stylish Dog Collar & Leash Set",
+        "price": "25.50",
+        "image": "../img/products/ogrlica_lanac.jpg",
+        "sku": "DOG-ACCESSORY-003",
+        "category": "dog",
+        "shortDescription": "A fashionable and functional set for your dog.",
+        "longDescription": "Elevate your dog's style with this elegant collar and leash set. Crafted for durability and comfort, it's perfect for everyday use and special occasions."
+    }
+]

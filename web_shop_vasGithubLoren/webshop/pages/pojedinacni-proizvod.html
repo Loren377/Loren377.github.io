@@ -359,31 +359,19 @@
             const relatedProductsGrid = document.querySelector('.related-products-grid');
             const noRelatedMsg = relatedProductsGrid.querySelector('.no-related-products');
 
+            // In pojedinacni-proizvod.html script
             async function fetchAllProductsData() {
-                // In a real app, you'd fetch this from a server or a JSON file.
-                // For now, we'll try to simulate by fetching from `proizvodi.html` if possible,
-                // or use a predefined list if on a different domain or direct access.
-                // This is a simplified placeholder. You'll need a robust way to get all product data.
-                // For this example, let's assume we can't fetch from proizvodi.html directly.
-                // We'll create a sample list here. Replace with actual data source.
-
-                // This is where you'd ideally load your full product catalog
-                // For demonstration, using a simplified, hardcoded list:
-                // You should replace this with a fetch to a JSON file or similar
-                const sampleProducts = [
-                    // Dog Products
-                    { name: "Chewy Dog Toy", price: "14.50", image: "../img/products/dog_toy4.webp", sku: "DOG-TOY-001", category: "dog", shortDescription: "Durable toy.", longDescription: "Longer desc."},
-                    { name: "Healthy Dog Food", price: "29.99", image: "../img/products/dog_food.png", sku: "DOG-FOOD-001", category: "dog", shortDescription: "Nutritious food.", longDescription: "Longer desc."},
-                    { name: "Durable Dog Leash", price: "19.99", image: "../img/products/lanac1.jpg", sku: "DOG-ACCESSORY-001", category: "dog", shortDescription: "Strong leash.", longDescription: "Longer desc."},
-                    { name: "Travel Dog Kennel", price: "55.00", image: "../img/products/dog_box.jpg", sku: "DOG-HOUSE-001", category: "dog", shortDescription: "Portable kennel.", longDescription: "Longer desc."},
-                    // Cat Products
-                    { name: "Healthy Cat Food (Chicken & Fish)", price: "22.50", image: "../img/products/cat_food1.png", sku: "CAT-FOOD-001", category: "cat", shortDescription: "Tasty cat food.", longDescription: "Longer desc."},
-                    { name: "Feather Cat Toy", price: "9.99", image: "../img/products/cat_igracke.jpg", sku: "CAT-TOY-001", category: "cat", shortDescription: "Fun feather toy.", longDescription: "Longer desc."},
-                    { name: "Premium Cat Food", price: "35.50", image: "../img/products/cat_hrana2.jpg", sku: "CAT-FOOD-004", category: "cat", shortDescription: "High-quality cat food.", longDescription: "Longer desc."},
-                    { name: "Luxury Cat Bed", price: "65.00", image: "../img/products/cat_food1.png", sku: "CAT-LUX-BED-001", category: "cat", shortDescription: "Plush cat bed.", longDescription: "Longer desc."},
-                    // Add more products as they are in your proizvodi.html for better matching
-                ];
-                return sampleProducts;
+                try {
+                    const response = await fetch('../data/products.json'); // Assumes products.json is at the root
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const products = await response.json();
+                    return products;
+                } catch (error) {
+                    console.error("Could not fetch products for related items:", error);
+                    return []; // Return empty array on error to prevent further issues
+                }
             }
 
 
