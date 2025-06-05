@@ -245,6 +245,127 @@ main {
     background-color: #21867a;
 }
 
+footer {
+    background-color: #333;
+    color: #ccc;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9em;
+    border-top: 5px solid #946b4e;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    font-family: "Permanent Marker", cursive;
+    color: #ebda89;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 8px;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#footer-contact p .icon {
+    margin-right: 8px;
+    color: #ebda89;
+}
+
+#footer-contact a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+#footer-contact a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+
+.social-icons a:first-child {
+    color: #1877F2
+}
+
+.social-icons a {
+    color: #d62976;
+}
+
+.social-icons a:last-child {
+    color: black;
+}
+
+.social-icons a:hover {
+    opacity: 1;
+    color: white;
+}
+
+#footer-menu li a:hover {
+    color: #218838;
+    text-decoration: none;
+}
+
+#footer-contact p a:hover {
+    color: #218838;
+    text-decoration: none;
+}
+
 /*.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....PRODUCTS.....*/
 
 #proizvodi h1 {
@@ -498,11 +619,6 @@ main {
 .gallery {
     max-width: 500px;
     margin: 0 auto;
-}
-
-input[type="radio"] {
-    /* General radio, might conflict with filter radios if not specific */
-    /* display: none; -- This was for gallery, ensure filter radios are visible */
 }
 
 .gallery input[type="radio"] {
