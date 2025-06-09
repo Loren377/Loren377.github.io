@@ -67,6 +67,23 @@
              border-radius: 4px;
              border: 1px solid #eee;
         }
+        
+        /* UPDATED: We removed the inline styles from the <section> tag and improved them here */
+        #product-details {
+            background-color: #333; /* Match the main section background */
+            color: whitesmoke;
+            padding: 2em 1em; /* Give it some vertical breathing room */
+            margin-top: 0; /* No margin needed since it's now part of the flow */
+            border-top: 1px solid #555; /* A subtle separator */
+        }
+        #product-details .details-content {
+            max-width: 800px; /* Constrain the text for readability */
+            margin: 0 auto; /* Center the text container */
+        }
+        #product-details h2 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
     </style>
 </head>
 <body>
@@ -75,7 +92,7 @@
       <img id="logo" src="../img/logo/schnauzer-face-svgrepo-com.svg" alt="Logo">
       <h1><a href="../index.html">PAW HAVEN</a></h1>
         <select id="menu" name="menu">
-            <option value="">Main menu</option> <!-- Empty value for placeholder -->
+            <option value="">Main menu</option>
             <option value="../index.html">Home</option>
             <option value="../pages/proizvodi.html">Proizvodi</option>
             <option value="../pages/kontakt.html">Kontakt</option>
@@ -84,73 +101,68 @@
       </div>
       </header>
     <main id="proizvodi">
-        <nav aria-label="Breadcrumb">
-            <ol class="breadcrumb">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../pages/proizvodi.html">Shop</a></li>
-                <li class="current-product-name"></li> <!-- Populated by JS -->
-            </ol>
-        </nav>
+        <div class="product-content-wrapper">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/proizvodi.html">Shop</a></li>
+                    <li class="current-product-name"></li>
+                </ol>
+            </nav>
 
-        <div class="gallery">
-            <input type="radio" name="gallery" id="img1" checked>
-            <input type="radio" name="gallery" id="img2">
-            <input type="radio" name="gallery" id="img3">
+            <div class="gallery">
+                <input type="radio" name="gallery" id="img1" checked>
 
-            <div class="main-images">
-                <img id="main-product-image" src="" alt="Product Image 1">
+                <div class="main-images">
+                    <img id="main-product-image" src="" alt="Product Image 1">
                 </div>
 
-            <div class="thumbnails" id="product-thumbnails">
-                <!-- Thumbnails will be populated if multiple images are available -->
-                <label for="img1"><img id="thumb-product-image" src="" alt="Thumb 1"></label>
-                </div>
-        </div>
-        <div class="product-info">
-            <h1 class="product-name"></h1>
-            <p class="product-sku">SKU: <span id="product-sku-display"></span></p>
-            <p class="product-price"></p>
-            <p class="product-availability">Availability: <span class="in-stock">In Stock</span></p>
-            <p class="short-description"></p>
-
-            <div class="long-description">
-                <h4>Product Details:</h4>
-                <p id="long-description-text"></p>
             </div>
+            <div class="product-info">
+                <h1 class="product-name"></h1>
+                <p class="product-sku">SKU: <span id="product-sku-display"></span></p>
+                <p class="product-price"></p>
+                <p class="product-availability">Availability: <span class="in-stock">In Stock</span></p>
+                <p class="short-description"></p>
 
-            <form class="product-options" id="productForm">
-                <input type="hidden" name="productName" id="hidden-product-name">
-                <input type="hidden" name="productSKU" id="hidden-product-sku"> <!-- Ensure this is populated -->
-                <input type="hidden" name="productPrice" id="hidden-product-price">
-                <input type="hidden" name="productImage" id="hidden-product-image">
+                <!-- REMOVED: The 'long-description' div was here. We'll use the section below instead. -->
 
-                <label for="size">Size:</label>
-                <select id="size" name="size">
-                    <option value="N/A">N/A</option> <!-- Default for products without size -->
-                    <option value="Small">Small</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Large">Large</option>
-                </select>
+                <form class="product-options" id="productForm">
+                    <input type="hidden" name="productName" id="hidden-product-name">
+                    <input type="hidden" name="productSKU" id="hidden-product-sku">
+                    <input type="hidden" name="productPrice" id="hidden-product-price">
+                    <input type="hidden" name="productImage" id="hidden-product-image">
 
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="1" value="1">
+                    <label for="size">Size:</label>
+                    <select id="size" name="size">
+                        <option value="N/A">N/A</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
 
-                <button type="submit" class="add-to-cart">Add to Cart</button>
-            </form>
-        </div>
-        </main>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+                    <button type="submit" class="add-to-cart">Add to Cart</button>
+                </form>
+            </div>
+        </div> 
+    </main>
 
     <a href="../pages/kosarica.html" id="cart-toggle" class="cart-link">🛒 Cart (<span id="cart-count">0</span>)</a>
 
-    <section id="product-details" style="margin-top: 2em; padding: 1em; background-color: #f9f9f9; border: 1px solid #ddd;">
-        <h2>Details / Specifications</h2>
-        <p id="section-long-description" style="line-height: 1.6; font-size: 1.1em;"></p>
+    <!-- This section now serves as the primary location for the long description -->
+    <section id="product-details">
+        <div class="details-content">
+            <h2>Details / Specifications</h2>
+            <p id="section-long-description" style="line-height: 1.6; font-size: 1.1em;"></p>
+        </div>
     </section>
 
     <section id="customer-reviews" style="margin-top: 2em; padding: 1.5em; background-color: #fff7f0; border: 1px solid #e0cfcf; border-radius: 8px;">
         <h2>Customer Reviews</h2>
         <div id="reviews-list">
-            <!-- Reviews will be populated here by JS -->
             <p class="no-reviews" style="color: #777;">No reviews yet. Be the first to review this product!</p>
         </div>
 
@@ -184,14 +196,13 @@
     <section id="related-products" style="margin-top: 2em; padding: 1.5em; background-color: #f4f4f4; border: 1px solid #ccc; border-radius: 8px;">
         <h2>Related Products</h2>
         <div class="related-products-grid">
-            <!-- Related products will be populated here by JS -->
             <p class="no-related-products" style="color: #777;">No related products found.</p>
         </div>
     </section>
     <footer>
           <div class="footer-container">
               <div class="footer-column" id="footer-about">
-                  <h4>PAW HAVEN</h4> <!-- Or your webshop name -->
+                  <h4>PAW HAVEN</h4>
                   <p>Providing the best for your furry friends. Quality supplies and expert advice.</p>
                   <p class="copyright">© 2024 PAW HAVEN. All rights reserved.</p>
               </div>
@@ -272,7 +283,7 @@
                 document.querySelector('.short-description').textContent = productShortDescription;
             }
             if (productLongDescription) {
-                document.getElementById('long-description-text').textContent = productLongDescription;
+                // The long description is now only populated in the dedicated section below
                 document.getElementById('section-long-description').textContent = productLongDescription;
             }
             if (productImage) {

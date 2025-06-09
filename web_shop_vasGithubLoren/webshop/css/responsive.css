@@ -106,6 +106,10 @@
         box-sizing: border-box;
     }
 
+    .category:last-child {
+        margin-bottom: 1.5em;
+    }
+
     .category img {
         width: 100%;
         height: auto;
@@ -195,11 +199,6 @@
 
     /*....Product grid layout....Product grid layout....Product grid layout....Product grid layout....*/
 
-    .thumbnails img {
-        width: 60px;
-        height: 60px;
-    }
-
     .product-info {
         padding: 15px;
     }
@@ -282,5 +281,34 @@
 
     .total {
         text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .product-content-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2em;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .product-content-wrapper>nav {
+        flex-basis: 100%;
+    }
+
+    .product-content-wrapper>.gallery {
+        flex: 1 1 40%;
+        max-width: 450px;
+        margin: 0;
+    }
+
+    .product-content-wrapper>.product-info {
+        flex: 1 1 50%;
+        max-width: 600px;
+        margin: 0;
+        text-align: left;
     }
 }
