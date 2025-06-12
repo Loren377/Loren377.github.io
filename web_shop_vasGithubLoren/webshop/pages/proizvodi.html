@@ -37,6 +37,13 @@
             <aside class="sidebar">
                 <h3>Filter By</h3>
 
+                <!-- START: Added Search Bar -->
+                <div class="filter-group">
+                    <h4>Search</h4>
+                    <input type="text" id="search-input" placeholder="Search products...">
+                </div>
+                <!-- END: Added Search Bar -->
+
                 <div class="filter-group">
                 <h4>Category</h4>
                 <label><input type="checkbox" name="category" value="dog"> Dog Supplies</label><br>
@@ -138,6 +145,7 @@
             let allProductsData = []; // This will be populated from JSON
 
             const sortSelect = document.getElementById('sort');
+            const searchInput = document.getElementById('search-input'); // Get search input
             const categoryCheckboxes = document.querySelectorAll('.sidebar .filter-group input[type="checkbox"][name="category"]');
             const priceRadios = document.querySelectorAll('.sidebar .filter-group input[type="radio"][name="price"]');
             const paginationContainer = document.querySelector('.pagination');
@@ -201,6 +209,15 @@
 
             function applyFiltersAndSort() {
                 let productsToShow = [...allProductsData];
+
+                // 0. Search Filter
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                if (searchTerm) {
+                    productsToShow = productsToShow.filter(p =>
+                        p.name.toLowerCase().includes(searchTerm) ||
+                        p.shortDescription.toLowerCase().includes(searchTerm)
+                    );
+                }
 
                 // 1. Category Filter
                 const selectedCategories = Array.from(categoryCheckboxes)
@@ -340,6 +357,7 @@
             }
 
             // Event Listeners
+            searchInput.addEventListener('input', applyFiltersAndSort); // Listener for the search bar
             sortSelect.addEventListener('change', applyFiltersAndSort);
             priceRadios.forEach(radio => radio.addEventListener('change', applyFiltersAndSort));
             categoryCheckboxes.forEach(checkbox => checkbox.addEventListener('change', applyFiltersAndSort));
